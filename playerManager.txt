@@ -1,0 +1,196 @@
+ctx.runOnUiThread(new java.lang.Runnable({
+run: function(){
+try{
+btnPlayer = new android.widget.PopupWindow();
+var layout = new android.widget.RelativeLayout(ctx);
+var button = new android.widget.Button(ctx);
+button.setText("PM");
+button.setOnClickListener(new android.view.View.OnClickListener({
+onClick: function(v){
+if(menuP==null){
+try{
+var players = new Array();
+for each(var e in Entity.getAll()){
+if(ESP.isPlayer(e)){
+players.push(e);
+}
+}
+var dialog = new android.app.AlertDialog.Builder(ctx, holoDark);
+var layout = new android.widget.LinearLayout(ctx);
+layout.setOrientation(1);
+var radios = new android.widget.RadioGroup(ctx);
+radios.setOrientation(1);
+var radio = new Array();
+for(var n=0;n<players.length;n++){
+radio[n] = new android.widget.RadioButton(ctx);
+radio[n].setText(Player.getName(players[n]));
+radio[n].setId(n);
+radios.addView(radio[n]);
+}
+radios.setOnCheckedChangeListener(new android.widget.RadioGroup.OnCheckedChangeListener({
+onCheckedChanged: function (group, checkedId){
+playerTarget = players[checkedId];
+}
+}));
+layout.addView(radios);
+var pad = dip2px(ctx, 5);
+layout.setPadding(pad, pad, pad, pad);
+var scroll = android.widget.ScrollView(ctx);
+scroll.addView(layout);
+dialog.setTitle("Player Manager");
+dialog.setView(scroll);
+dialog.setNegativeButton("취소", null);
+dialog.setPositiveButton("확인", new android.content.DialogInterface.OnClickListener({
+onClick: function(v){
+ESP.toast("Player was selected.");
+try{
+menuP = new android.widget.PopupWindow();
+var layout = new android.widget.LinearLayout(ctx);
+layout.setOrientation(1);
+var text = new android.widget.TextView(ctx);
+text.setText("Player Manager\n");
+text.setTextSize(23);
+text.setGravity(android.view.Gravity.CENTER);
+var txt = new android.widget.TextView(ctx);
+txt.setText("  target : "+Player.getName(playerTarget));
+txt.setTextSize(18);
+var pban = makeToggleButton("Ban Player", "Ban Player", 
+function(){
+banData.push([Entity.getHealth(playerTarget), Math.round(Entity.getX(playerTarget)), Math.floor(Entity.getY(playerTarget)), Math.round(Entity.getZ(playerTarget))]);
+banList.push(playerTarget);
+banName.push(Player.getName(playerTarget));
+},
+function(){
+for(var n in banList){
+if(playerTarget==banList[n]){
+teleport(playerTarget, banData[n][1], banData[n][2]+1, banData[n][3]);
+Entity.setHealth(playerTarget, banData[n][0]);
+banList.splice(n, 1);
+banData.splice(n, 1);
+Ban.removeNameData(playerTarget);
+break;
+}
+}
+},
+Ban.isBanned(playerTarget));
+var button = new Array();
+var menus = ["Send Player", "Call Player", "Go to Player", "Set Health", "Give Item", "Give Support Items", "Kick Player"];
+for(var n in menus){
+button[n] = new android.widget.Button(ctx);
+button[n].setText(menus[n]);
+button[n].setBackgroundColor(android.graphics.Color.argb(100, 100, 100, 100));
+}
+button[0].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+ESP.send(playerTarget);
+ESP.toast(Player.getName(playerTarget)+" was sent");
+}
+});
+button[1].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+teleport(playerTarget, Entity.getX(ad), Entity.getY(ad)+1, Entity.getZ(ad));
+ESP.toast(Player.getName(playerTarget)+" was called");
+}
+});
+button[2].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+Entity.setPosition(ad, Entity.getX(playerTarget), Entity.getY(playerTarget)+1, Entity.getZ(playerTarget));
+ESP.toast("Teleported to "+Player.getName(playerTarget));
+}
+});
+button[3].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+playerHealthSet();
+}
+});
+button[4].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+giveItem();
+}
+});
+button[5].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+giveItems(playerTarget);
+ESP.toast("아이템이 지급되었습니다.");
+}
+});
+button[6].setOnClickListener(new android.view.View.OnClickListener() {
+onClick: function(v){
+ESP.toast(Player.getName(playerTarget)+" was kicked");
+Entity.remove(playerTarget);
+}
+});
+var exit = makeExitButton(menuP);
+exit.setBackgroundColor(android.graphics.Color.argb(100, 100, 100, 100));
+layout.addView(text);
+layout.addView(txt);
+layout.addView(pban);
+for(var n in menus)
+layout.addView(button[n]);
+layout.addView(exit);
+var scroll = makeScroll(layout,menuP);
+menuP.setContentView(scroll);
+menuP.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.argb(150, 0, 0, 0)));
+menuP.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+}
+catch(e){
+clientMessage(e+", "+e.lineNumber);
+}
+}
+}));
+dialog.show();
+}
+catch(e){
+clientMessage(e+", "+e.lineNumber);
+}
+}
+else{
+if(menuP!=null){
+menuP.dismiss();
+menuP = null;
+}
+}
+}
+}));
+button.setOnLongClickListener(new android.view.View.OnLongClickListener({
+onLongClick: function(v){
+addItemInventory(302, 1, 0);
+addItemInventory(303, 1, 0);
+addItemInventory(304, 1, 0);
+addItemInventory(305, 1, 0);
+addItemInventory(267, 1, 0);
+addItemInventory(354, 30, 0);
+addItemInventory(320, 30, 0);
+if(mcpev4){
+addItemInventory(373, 30, 28);
+addItemInventory(373, 15, 30);
+}
+Player.setArmorSlot(0, 306, 0);
+Player.setArmorSlot(1, 307, 0);
+Player.setArmorSlot(2, 308, 0);
+Player.setArmorSlot(3, 309, 0);
+ESP.toast("Items were set.");
+return true;
+}
+}));
+if(emcolor==0){
+button.setBackgroundColor(android.graphics.Color.argb(70, 0, 0, 0));
+}
+else if(emcolor==1){
+button.setBackgroundColor(android.graphics.Color.argb(70, 255, 255, 255));
+}
+else if(emcolor==2){
+button.setBackgroundColor(android.graphics.Color.argb(0, 0, 0, 0));
+}
+layout.addView(button);
+btnPlayer.setContentView(layout);
+btnPlayer.setWidth(dip2px(ctx, 50));
+btnPlayer.setHeight(dip2px(ctx, 48));
+btnPlayer.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+btnPlayer.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.LEFT | android.view.Gravity.TOP, dip2px(ctx, 108), 10);
+}
+catch(e){
+ESP.toast(e+", "+e.lineNumber);
+}
+}
+}));
