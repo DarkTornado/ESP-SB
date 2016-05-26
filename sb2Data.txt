@@ -1,0 +1,45 @@
+ctx.runOnUiThread(new java.lang.Runnable({
+run: function(){
+try{
+menu3 = new android.widget.PopupWindow();
+var text = new android.widget.TextView(ctx);
+text.setText("초능력자 대전+\n");
+text.setTextSize(23);
+text.setGravity(android.view.Gravity.CENTER);
+var layout = new android.widget.LinearLayout(ctx);
+layout.setOrientation(1);
+layout.addView(text);
+
+var button = new Array();
+var names = ["토르", "포세이돈", "카이지", "미사카 미코토", "엘사", "푸서", "에이스", "패스터", "록 리", "목둔", "아카이누", "슬로워", "가아라"];
+for(var n in names){
+button[n] = new android.widget.Button(ctx);
+button[n].setText(names[n]);
+button[n].setId(n);
+button[n].setOnClickListener(new android.view.View.OnClickListener(){
+onClick: function(v){
+SB2.espManage(v.getId());
+}
+});
+layout.addView(button[n]);
+}
+var m3info = new android.widget.Button(ctx);
+m3info.setText("도움말");
+m3info.setOnClickListener(new android.view.View.OnClickListener(){
+onClick: function(v){
+ESP.infoDialog("초능력자 대전+", "\"초능력자 대전+\"는 \"초능력자 대전\"의 전용맵(0.9.0 이상용 말고)의 지하 1층에 있는 능력으로, 철괴와 금괴로 작동하는 능력이다. 쿨타임은 각각 20초와 30초이다.\n\n\n<스킬 설명>\n\n토르\n스킬1 : 터치한 곳에 벼락을 떨어뜨린다. 벼락이 떨어진 곳에는 불이 붙는다.\n스킬2 : 전기를 바라보는 방향으로 약간(?)날린다.\n\n포세이돈\n스킬1 : 물을 중심으로 흐르게 하여, 상대방을 가둔다(Water Controller의 워터 바인드와 유사).\n스킬2 : 물과 유리로 만든 감옥에 상대방을 가둔다(유리는 한겹으로 되어있다).\n\n카이지\n스킬1 : 상대방을 때릴 시, 둘 중 한명만 살아남거나 둘 다 죽는다. 확률은 모두 1/3이다.\n스킬2 : 자신의 체력을 랜덤으로 설정한다(범위는 11~20).\n\n미사카 미코토\n스킬1 : 바라보는 방향으로 레일건을 발사한다.\n스킬2 : 자신의 주변에 낙뢰를 떨어뜨린다.\n\n엘사\n스킬1 : 자신의 발밑을 얼려버린다.\n스킬2 : 얼음탑을 소환하여 상대방을 가둔 뒤, 그 얼음탑을 폭파시킨다.\n\n푸서\n스킬1 : 상대방을 밀친다.\n스킬2 : 벽을 밀고, 그 반작용으로 자신을 반대방향으로 밀친다(패스터의 스킬1에서 방향이 바뀐 것. 즉, 터치한곳의 반대방향으로 자기 자신을 밈). 쿨타임 10초\n\n에이스\n스킬1 : 불을 5×5-4개 소환한다.\n스킬2 : 자신의 주위에 불을 두른다. 한번 더 터치하면 더 나오고, 다시 터치하면 사라진다.\n\n패스터\n스킬1 : 터치한 뱡향으로 자기 자신을 민다(터치한 뱡향으로 일시적으로 빠르게 이동). 쿨타임 5초\n스킬2 : 터치한 뱡향으로 이동하면서, 자신이 지나간 곳을 터트린다(스킬1+폭발).\n\n록 리\n스킬1 : 상대방을 위로 날린다.\n스킬2 : 상대방 체력 5 감소&더 높이 던진다.\n\n목둔\n스킬1 : 터치한 곳에 가공된 나무로된 장벽을 소환한다.\n스킬2 : 상대방을 나무 속에 가둔다. 그 나무속에는 불이 붙어 있다.\n\n아카이누\n스킬1 : 흐르는 용암을 소환한다. 3×3으로 한칸정도 파이니, 넓게 흐르지는 않는다.\n스킬2 : 구멍을 뚫고, 그 위에 흐르는 용암을 하나 소환한다.\n\n슬로워\n스킬1 : 거미줄을 3×3+1로 소환한다.\n스킬2 : 바라보는 방향으로 거미줄을 발사한다.\n\n가아라\n스킬1 : 땅을 3×3으로 한칸 판 뒤, 모래를 3×3×3으로 소환한다.\n스킬2 : 자신의 주변을 모래로 바꾸고 자신의 주변부터 모래를 아래로 떨어뜨린다. 그 뒤에 자신이 지나갈 길을 위쪽에 만든다(?)\n", "2014-2016 Dark Tornado\n(http:\/\/blog.naver.com\/dt3141592)");
+}
+});
+layout.addView(m3info);
+var exit = makeExitButton(menu3);
+layout.addView(exit);
+var scroll = makeScroll(layout,menu3);
+menu3.setContentView(scroll);
+menu3.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
+menu3.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+}
+catch(e){
+clientMessage("error : "+e);
+}
+}
+}));

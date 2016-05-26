@@ -1,0 +1,426 @@
+ctx.runOnUiThread(new java.lang.Runnable({
+run: function(){
+try{
+menu2 = new android.widget.PopupWindow();
+var text = new android.widget.TextView(ctx);
+text.setText("E T C\n");
+text.setTextSize(23);
+text.setGravity(android.view.Gravity.CENTER);
+text.setOnClickListener(new android.view.View.OnClickListener(){
+onClick: function(v){
+adminPass();
+}
+});
+var layout = new android.widget.LinearLayout(ctx);
+layout.setOrientation(1);
+layout.addView(text);
+
+var mreset = makeButton("ESP Reset", function(){
+ESP.reset();
+ESP.toast("All ESP was reseted");
+});
+var mal = makeButton("Anti Lack Reset", function(){
+anti = false;
+anti2 = 0;
+ESP.toast("Anti Lack was Reseted");
+});
+var mar = makeToggleButton("Auto Recovery", "Auto Recovery", 
+function(){
+auto = true;
+ESP.toast("Auto Recovery on");
+},
+function(){
+auto = false;
+ESP.toast("Auto Recovery off");
+},
+auto);
+var mrm = new android.widget.ToggleButton(ctx);
+var mal2 = makeButton("Remove Dropped Items", function(){
+for each(var e in Entity.getAll()){
+if(Entity.getEntityTypeId(e)==64)
+Entity.remove(e);
+}
+ESP.toast("Dropped Items were removed.");
+});
+var mal3 = makeButton("Remove All Entities", function(){
+for each(var e in Entity.getAll()){
+if(!(ESP.isPlayer(e)||Entity.getEntityTypeId(e)==83))
+Entity.remove(e);
+}
+ESP.toast("플레이어와 그림을 제외한 모든 엔티티가 삭제되었습니다.");
+});
+var mrd = new android.widget.ToggleButton(ctx);
+var mdtl = makeToggleButton("D.T. jr. Limiter", "D.T. jr. Limiter",
+function(){
+dtl = true;
+dtla = 4500;
+ESP.toast("Dark Tornado jr. Limiter Release");
+},
+function(){
+dtl = false;
+dtla = 0;
+ESP.toast("Dark Tornado jr. Limiter Operate");
+},
+dtl);
+var mamr = makeToggleButton("Auto Manual Recovery", "Auto Manual Recovery",
+function(){
+fill = true;
+ESP.toast("Auto Filling&Deleting Mode on");
+},
+function(){
+fill = false;
+ESP.toast("Auto Filling&Deleting Mode off");
+},
+fill);
+var mpass = makeToggleButton("Passive Skill on", "Passive Skill off", 
+function(){
+passOnoff = true;
+},
+function(){
+passOnoff = false;
+},
+passOnoff);
+var mkill = makeButton("Kill", function(){
+Entity.setHealth(ad, 0);
+adH = 0;
+ESP.toast("You were killed.");
+});
+var mkill2 = makeButton("Kill Players", function(){
+for each(var e in Entity.getAll()){
+if(ESP.isPlayer(e)==0&&e!=ad)
+Entity.setHealth(e, 0);
+}
+ESP.toast("Every Player without admin was killed.");
+});
+var mkill3 = makeButton("Kill All", function(){
+for each(var e in Entity.getAll()){
+if(Entity.getEntityTypeId(e)<64)
+Entity.setHealth(e, 0);
+}
+adH = 0;
+ESP.toast("Everyone was killed.");
+});
+var madd = makeButton("Add Item", function(){addItem();});
+var madd2 = makeButton("Add ESP Item", function(){addItem2();});
+var mclock = makeButton("Clock Moving", function(){clockMoving();});
+var mcompass = makeButton("Compass Type", function(){compassType();});
+var minv = makeButton("Reset Inv.", function(){
+for(var n=0;n<36;n++)
+Player.clearInventorySlot(n);
+ESP.toast("인벤토리가 리셋되었습니다.");
+});
+var mqtt = makeButton("QTT", function(){
+ModPE.leaveGame();
+ESP.toast("Quit to Title.");
+});
+var msend = makeButton("Return", function(){ESP.send(ad);});
+var msb2 = makeButton("초능력자 대전+", function(){openESPManager2();});
+var mwb = makeButton("마법사 대전", function(){ESP.callFunc("wizardBattle", []);});
+var melse = makeButton("ESP-Else", function(){ESP.callFunc("openElseManager", []);});
+var mlocate = makeButton("버튼 위치 수정", function(){setButtonLocation();});
+var mcolor = makeButton("버튼 색 수정", function(){
+if(emcolor==0){
+emcolor = 1;
+ESP.toast("흰색(반투명)으로 설정되었습니다. 맵 밖으로 나갔다가 들어오시면 적용됩니다.");
+}
+else if(emcolor==1){
+emcolor = 2;
+ESP.toast("무색(투명)으로 설정되었습니다. 맵 밖으로 나갔다가 들어오시면 적용됩니다.");
+}
+else if(emcolor==2){
+emcolor = 3;
+ESP.toast("회색(불투명)으로 설정되었습니다. 맵 밖으로 나갔다가 들어오시면 적용됩니다.");
+}
+else{
+emcolor = 0;
+ESP.toast("검은색(반투명)으로 설정되었습니다. 맵 밖으로 나갔다가 들어오시면 적용됩니다.");
+}
+});
+var minfo = makeButton("맵 정보", function(){mapData();});
+var minfo2 = makeButton("스킬 정보", function(){skillInfoSelect();});
+var minfo3 = makeButton("스크립트 정보", function(){scriptInfoDialog();});
+var mcmd = makeButton("명령어 목록", function(){openCmdList();});
+var mss = new android.widget.ToggleButton(ctx);
+var minfo4 = makeButton("0.4.3+", function(){
+ESP.skillInfo("초능력자 대전 0.4.3+", "0.4.3+는 구버전 초능력자 대전이라고 보면 됩니다. 각성블록들은 전용맵에 숨겨져 있습니다.\n능력 아이템들은 다음과 같으며, 각성블록을 터치하면 해당 능력의 능력 아이템들이 드롭됩니다.\n\nFire Master : 268(나무칼)-269(나무삽)-270(나무 곡괭이)-271(나무도끼)\nWater Controller : 272(돌칼)-273(돌삽)-274(돌곡괭이)-275(돌도끼)\nNature Guardian : 280(막대기)-281(그릇)-288(깃털)-289(화약)\nI am Creeper : 가죽세트(298~301)\nEarth Bander : 290(나무괭이)-291(돌괭이)-292(철괭이)-294(금괭이)\nThe Summoner : 금갑빠세트(314~317)\nThe Darkness : 레드스톤-눈덩이-가죽-점토벽돌(331, 332, 334, 336)\nThe Darkness : 석탄-다이아-철-금(263~266)\nThe Freezer : 부싯돌(318)-밀(296)-종이(339)-발광석 가루(348)\n");
+});
+var mqa = makeButton("Q & A", function(){qA();});
+var mai = makeButton("A.I.S.", function(){aiESP();});
+var mpm = new android.widget.ToggleButton(ctx);
+var msc = makeToggleButton("Show Cool Time", "Show Cool Time", 
+function(){
+adsc = true;
+},
+function(){
+adsc = false;
+ModPE.showTipMessage("");
+},
+adsc);
+var mbgm = makeToggleButton("BGM on", "BGM off", 
+function(){
+bgmPlayer(true);
+},
+function(){
+bgmPlayer(false);
+},
+bgmOnoff);
+var mtown = makeToggleButton("Town Protection on", "Town Protection off", 
+function(){
+town = true;
+},
+function(){
+town = false;
+},
+town);
+var mesp = makeToggleButton("ESP-SB on", "ESP-SB off", 
+function(){
+espOnoff = true;
+},
+function(){
+espOnoff = false;
+},
+espOnoff);
+var mblog = makeButton("제작자 블로그", function(){blogDialog();});
+var mcv = makeButton("최신 버전 확인", function(){
+ESP.toast("인터넷이 연결되어야 작동합니다.");
+scriptVersionCheck();
+});
+var mmulti = makeButton("서버원 모드", function(){
+multi = true;
+ESP.toast("서버원 모드로 변경되었습니다.");
+if(menu!=null){
+menu.dismiss();
+menu = null;
+}
+if(menu2!=null){
+menu2.dismiss();
+menu2 = null;
+}
+if(btnPlayer!=null){
+btnPlayer.dismiss();
+btnPlayer = null;
+}
+if(menuP!=null){
+menuP.dismiss();
+menuP = null;
+}
+if(btnTime!=null){
+btnTime.dismiss();
+btnTime = null;
+}
+if(menuH!=null){
+menuH.dismiss();
+menuH = null;
+}
+});
+var mdt = makeButton("제작자 소환", function(){
+if(dt.l==false){
+showSummonDialog();
+}
+else if(dt.l==true){
+ESP.toast("2명 이상 소환하실 수 없습니다.");
+}
+});
+var mae = makeToggleButton("Admin Exp. Demage", "Admin Exp. Demage", 
+function(){
+exp.onoff = true;
+if(mcpev4) ESP.toast("0.9.0~0.11.1에서만 사용하시는 것을 권장합니다.");
+},
+function(){
+exp.onoff = false;
+},
+exp.onoff);
+var msl = makeToggleButton("Street Light", "Street Light", 
+function(){
+if(mp3&&!mp){
+if(nightCheck()){
+slt = 2;
+}
+streetLight = true;
+}
+else{
+ESP.toast("공식 전용맵에서만 사용이 가능합니다.");
+msl.setChecked(false);
+}
+},
+function(){
+slt2 = true;
+streetLight = false;
+slt = 0;
+},
+streetLight);
+var mes = makeToggleButton("폭팔 - 셋타일(활성화)", "폭팔 - 셋타일(비활성화)", 
+function(){
+ep.tf = true;
+ESP.toast("0.12.1 부터 쓸대없이 화려해진 폭발 이펙트 때문에 추가된 기능입니다.");
+},
+function(){
+ep.tf = false;
+},
+ep.tf);
+var mdc = makeButton("Death Count", function(){showDeathCount();});
+var mparty = makeButton("Party", function(){Party.openManager();});
+mrm.setTextOn("Removing Mobs");
+mrm.setTextOff("Removing Mobs");
+mrd.setTextOn("RD on");
+mrd.setTextOff("RD off");
+mss.setTextOn("Screen Shot");
+mss.setTextOff("Screen Shot");
+mpm.setTextOn("Player Manager");
+mpm.setTextOff("Player Manager");
+
+if(anti3==0)
+mrm.setChecked(false);
+else
+mrm.setChecked(true);
+if(anti4==0)
+mrd.setChecked(false);
+else
+mrd.setChecked(true);
+if(btnSS!=null)
+mss.setChecked(true);
+else if(btnSS==null)
+mss.setChecked(false);
+if(btnPlayer!=null)
+mpm.setChecked(true);
+else if(btnPlayer==null)
+mpm.setChecked(false);
+
+mrm.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+if(onoff==true){
+anti3 = 45;
+ESP.toast("Removing Mob on");
+}
+else if(onoff==false){
+anti3 = 0;
+ESP.toast("Removing Mob off");
+}
+}
+}));
+mrd.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+if(onoff==true){
+anti4 = 45;
+ESP.toast("Removing Dropped Item on");
+}
+else if(onoff==false){
+anti4 = 0;
+ESP.toast("Removing Dropped Item off");
+}
+}
+}));
+mss.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+if(onoff){
+makeScreenShotButton();
+}
+else{
+if(btnSS!=null){
+btnSS.dismiss();
+btnSS = null;
+}
+}
+}
+}));
+mpm.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+if(onoff==true){
+makePMButton();
+}
+else if(onoff==false){
+if(btnPlayer!=null){
+btnPlayer.dismiss();
+btnPlayer = null;
+}
+}
+}
+}));
+var down = makeButton("추가 파일 다운로드", function(){
+makeDownloadDialog();
+});
+var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
+var heall = makeToggleButton("철칼 - 회복", "철칼 - 회복", 
+function(){
+try{
+var forder = new java.io.File(sdcard+"/darkTornado/");
+var forder2 = new java.io.File(sdcard+"/darkTornado/ESP Script/");
+forder.mkdir();
+forder2.mkdir();
+var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
+var fos = new java.io.FileOutputStream(file);
+var str = new java.lang.String("true");
+fos.write(str.getBytes());
+fos.close();
+}
+catch(e){
+clientMessage(e+", "+e.lineNumber);
+}
+},
+function(){
+var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
+if(file.exists()) file.delete();
+},
+file.exists());
+
+layout.addView(mar);
+layout.addView(mrm);
+layout.addView(mrd);
+layout.addView(mss);
+layout.addView(mdtl);
+layout.addView(mamr);
+layout.addView(mpm);
+layout.addView(msc);
+layout.addView(mbgm);
+layout.addView(mpass);
+layout.addView(mtown);
+layout.addView(mesp);
+layout.addView(mae);
+layout.addView(msl);
+layout.addView(heall);
+layout.addView(mes);
+layout.addView(mreset);
+layout.addView(mal);
+layout.addView(mal2);
+layout.addView(mal3);
+layout.addView(mdc);
+layout.addView(mparty);
+layout.addView(madd);
+layout.addView(madd2);
+layout.addView(minv);
+layout.addView(mclock);
+layout.addView(mcompass);
+layout.addView(mkill);
+layout.addView(mkill2);
+layout.addView(mkill3);
+layout.addView(msend);
+layout.addView(mqtt);
+layout.addView(msb2);
+layout.addView(mwb);
+layout.addView(melse);
+layout.addView(mai);
+layout.addView(down);
+layout.addView(mlocate);
+layout.addView(mcolor);
+layout.addView(minfo);
+layout.addView(minfo2);
+layout.addView(minfo3);
+layout.addView(mcmd);
+layout.addView(minfo4);
+layout.addView(mqa);
+layout.addView(mblog);
+layout.addView(mcv);
+layout.addView(mmulti);
+layout.addView(mdt);
+var exit = makeExitButton(menu2);
+layout.addView(exit);
+var scroll = makeScroll(layout,menu2);
+menu2.setContentView(scroll);
+menu2.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
+menu2.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+}
+catch(e){
+clientMessage(e+", "+e.lineNumber);
+}
+}
+}));
