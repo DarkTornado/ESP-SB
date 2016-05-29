@@ -54,25 +54,6 @@ text.setGravity(android.view.Gravity.CENTER);
 var txt = new android.widget.TextView(ctx);
 txt.setText("  target : "+Player.getName(playerTarget));
 txt.setTextSize(18);
-var pban = makeToggleButton("Ban Player", "Ban Player", 
-function(){
-banData.push([Entity.getHealth(playerTarget), Math.round(Entity.getX(playerTarget)), Math.floor(Entity.getY(playerTarget)), Math.round(Entity.getZ(playerTarget))]);
-banList.push(playerTarget);
-banName.push(Player.getName(playerTarget));
-},
-function(){
-for(var n in banList){
-if(playerTarget==banList[n]){
-teleport(playerTarget, banData[n][1], banData[n][2]+1, banData[n][3]);
-Entity.setHealth(playerTarget, banData[n][0]);
-banList.splice(n, 1);
-banData.splice(n, 1);
-Ban.removeNameData(playerTarget);
-break;
-}
-}
-},
-Ban.isBanned(playerTarget));
 var button = new Array();
 var menus = ["Send Player", "Call Player", "Go to Player", "Set Health", "Give Item", "Give Support Items", "Kick Player"];
 for(var n in menus){
@@ -124,7 +105,6 @@ var exit = makeExitButton(menuP);
 exit.setBackgroundColor(android.graphics.Color.argb(100, 100, 100, 100));
 layout.addView(text);
 layout.addView(txt);
-layout.addView(pban);
 for(var n in menus)
 layout.addView(button[n]);
 layout.addView(exit);
