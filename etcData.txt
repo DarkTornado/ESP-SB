@@ -336,9 +336,6 @@ btnPlayer = null;
 }
 }
 }));
-var down = makeButton("추가 파일 다운로드", function(){
-makeDownloadDialog();
-});
 var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
 var heall = makeToggleButton("철칼 - 회복", "철칼 - 회복", 
 function(){
@@ -399,7 +396,6 @@ layout.addView(msb2);
 layout.addView(mwb);
 layout.addView(melse);
 layout.addView(mai);
-layout.addView(down);
 layout.addView(mlocate);
 layout.addView(mcolor);
 layout.addView(minfo);
