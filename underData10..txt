@@ -1,0 +1,47 @@
+﻿if(i==302&&u[10].c1==0){
+setTile(x, y+1, z, 30);
+setTile(x+1, y+1, z, 30);
+setTile(x-1, y+1, z, 30);
+setTile(x, y+1, z+1, 30);
+setTile(x, y+1, z-1, 30);
+u[10].c1 = 150;
+}
+if(i==303&&u[10].c2==0){
+px = Player.getX();
+pz = Player.getZ();
+yaw = Math.floor(getYaw());
+sin = -Math.sin(yaw/180*Math.PI);
+cos = Math.cos(yaw/180*Math.PI);
+for(var n=3;n<20;n++)
+setTile(px+n*sin, y+1, pz+n*cos, 30);
+u[10].c2 = 300;
+}
+if(i==304&&u[10].c3==0){
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+u[10].c3 = 300;
+}
+if(i==305&&u[10].c4==0){
+ESP.heal(u[10].p);
+var p2x, p2y, p2z;
+for each(var e in Entity.getAll()){
+p2x = Math.abs(Player.getX()-Entity.getX(e));
+p2y = Math.abs(Player.getY()-Entity.getY(e));
+p2z = Math.abs(Player.getZ()-Entity.getZ(e));
+if(p2x<=20&&p2y<=20&&p2z<=20&&u[10].p!=e){
+if(ESP.isPlayer(e)) setTile(Entity.getX(e), Entity.getY(e)-1, Entity.getZ(e), 30);
+else setTile(Entity.getX(e), Entity.getY(e), Entity.getZ(e), 30);
+}
+}
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 35);
+Level.spawnMob(x, y+2, z, 40);
+Level.spawnMob(x, y+2, z, 40);
+Level.spawnMob(x, y+2, z, 40);
+u[10].c4 = 1800;
+}

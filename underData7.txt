@@ -1,0 +1,21 @@
+﻿if(i==302&&u[7].c1==0){
+Server.sendChat("I am Temmie!!!!!!!");
+Server.sendChat("I am Temmie!!!!!!!");
+u[7].c1 = 150;
+}
+if(i==303&&u[7].c2==0){
+Entity.addEffect(u[7].p, MobEffect.movementSpeed, 150, 1, true, false);
+u[7].c2 = 300;
+}
+if(i==304&&u[7].c3==0){
+Level.spawnMob(x, y+2, z, 32);
+Level.spawnMob(x, y+2, z, 32);
+Level.spawnMob(x, y+2, z, 32);
+u[7].c3 = 300;
+}
+if(i==305&&u[7].c4==0){
+ESP.heal(u[7].p);
+for(var n=0;n<20;n++)
+Level.spawnMob(x, y+2, z, 32);
+u[7].c4 = 1800;
+}

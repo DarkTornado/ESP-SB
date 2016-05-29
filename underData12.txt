@@ -1,0 +1,33 @@
+﻿if(i==302&&u[12].c1==0){
+Entity.addEffect(u[12].p, MobEffect.regeneration, 75, 1, true, false);
+u[12].c1 = 150;
+}
+if(i==303&&u[12].c2==0){
+Entity.addEffect(u[12].p, MobEffect.movementSpeed, 150, 1, true, false);
+u[12].c2 = 300;
+}
+if(i==304&&u[12].c3==0){
+arroundMobHealthDown(u[12].p, 10, 6);
+u[12].c3 = 300;
+}
+if(i==305&&u[12].c4==0){
+if(u[12].s==false){
+ESP.sbm("Save", true);
+u[12].s = [[], Level.getTime()];
+for each(var e in Entity.getAll()){
+if(Player.isPlayer(e)||fe==e||magma==e) u[12].s[0].push([e, Entity.getX(e),  Entity.getY(e),  Entity.getZ(e),  Entity.getHealth(e)]);
+}
+}
+else{
+ESP.heal(u[12].p);
+ESP.sbm("Load", true);
+Level.setTime(u[12].s[1]);
+var cache = u[12].s[0];
+for(var n=0;n<cache.length;n++){
+teleport(cache[n][0], cache[n][1], cache[n][2]+0.5, cache[n][3]);
+Entity.setHealth(cache[n][0], cache[n][4]);
+}
+u[12].s = false;
+u[12].c4 = 1800;
+}
+}
