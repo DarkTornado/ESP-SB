@@ -359,6 +359,14 @@ var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
 if(file.exists()) file.delete();
 },
 file.exists());
+var mmhef = makeToggleButton("Max Healh Error Fix", "Max Healh Error Fix", 
+function(){
+maxHealthFix = true;
+},
+function(){
+maxHealthFix = false;
+},
+maxHealthFix);
 
 layout.addView(mar);
 layout.addView(mrm);
@@ -375,6 +383,7 @@ layout.addView(mesp);
 layout.addView(mae);
 layout.addView(msl);
 layout.addView(heall);
+layout.addView(mmhef);
 layout.addView(mes);
 layout.addView(mreset);
 layout.addView(mal);
