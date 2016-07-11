@@ -114,7 +114,7 @@ iblood.setText("  The Vampire  ");
 iair.setText("  Air Bander  ");
 iblood.setOnClickListener(new android.view.View.OnClickListener(){
 onClick: function(v){
-ESP.skillInfo("The Vampire", "딜리트 - 상대의 체력 6을 지운다.\n앱솔션 - 상대의 체력 5를 흡수한다.\n텔레포트 - 터치한 방향으로 순간이동.\n나이트메어 - 한번 터치하면 밤이되고(+체력 15증가), 그 상태에서 상대방을 때리면 상대방의 체력이 20 이하이면 1로만들고, 초과면 20을 지운다(+체력 15 증가).\n패시브 - 상대반 타격 시, 체력 1 흡수. 밤에 상대방을 때릴 시, 1/2확률로 상대방의 체력 1 추가 흡수");
+ESP.skillInfo("The Vampire", "딜리트 - 상대의 체력 6을 지운다.\n앱솔션 - 상대의 체력 5를 흡수한다.\n텔레포트 - 터치한 방향으로 순간이동.\n나이트메어 - 한번 터치하면 밤이되고(+체력 15증가), 그 상태에서 상대방을 때리면 상대방의 체력이 20 이하이면 1로만들고, 초과면 20을 지운다(+체력 15 증가).\n패시브 - 상대방 타격 시, 낮에는 50%, 밤에는 100%의 확률로 체력 1 흡수.");
 }
 });
 iair.setOnClickListener(new android.view.View.OnClickListener(){
@@ -174,7 +174,7 @@ imeca.setText("  The Mechanic  ");
 itnt.setText("  TNT Expert  ");
 imeca.setOnClickListener(new android.view.View.OnClickListener(){
 onClick: function(v){
-ESP.skillInfo("The Mechanic", "건 샷 – 바라보는 방향으로 큰 총(?)을 발사한다.\n크로스 버스트 – 자신의 주위에 TNT를 설치한 후 터트린다.\n센딩 – 한번 터치하면 그 위쪽에 수신기가 설치되고, 한번 더 터치하면 그 수신기로 TNT가 전송된다.\n라운드 머신 – 자신의 주위에 네더코어들을 소환하여, 위에서 무언가를 발사한다. \n패시브 - 5초마다 자신의 체력을 확인, 20 미만이면 1을 회복한다.");
+ESP.skillInfo("The Mechanic", "건 샷 – 바라보는 방향으로 큰 총(?)을 발사한다.\n크로스 버스트 – 자신의 주위에 TNT를 설치한 후 터트린다.\n센딩 – 한번 터치하면 그 위쪽에 수신기가 설치되고, 한번 더 터치하면 그 수신기로 TNT가 전송된다.\n라운드 머신 – 자신의 주위에 네더코어들을 소환하여, 위에서 무언가를 발사한다. \n패시브 - 5초마다 자신의 체력을 확인, 20 미만이면 1을 회복.");
 }
 });
 itnt.setOnClickListener(new android.view.View.OnClickListener(){
@@ -194,7 +194,7 @@ itrap.setText("  Trap Creater  ");
 iheal.setText("  The Healer  ");
 itrap.setOnClickListener(new android.view.View.OnClickListener(){
 onClick: function(v){
-ESP.skillInfo("Trap Creater", "버스트 트랩 - 땅속에 폭탄을 설치, 폭파시킨다.\n파이어 트랩 - 땅속에 함정을 설치, 소규모 불구덩이(3×3×2)를 만든다.\n버닝 트랩 - 땅에 함정을 설치, 하나의 용암과 4개의 불을 소환한다. 불은 용암이 흐르면서 꺼진다.\n트랩 오브 헬 - 땅에 함정을 설치, 상대방을 베드락 내부에 가두고 족친다(?).\n패시브 - 상대방 타격 시, 20%화률로 상대방의 발밑이 한칸 파임");
+ESP.skillInfo("Trap Creater", "버스트 트랩 - 땅속에 폭탄을 설치, 폭파시킨다.\n파이어 트랩 - 땅속에 함정을 설치, 소규모 불구덩이(3×3×2)를 만든다.\n버닝 트랩 - 땅에 함정을 설치, 하나의 용암과 4개의 불을 소환한다. 불은 용암이 흐르면서 꺼진다.\n트랩 오브 헬 - 땅에 함정을 설치, 상대방을 베드락 내부에 가두고 족친다(?).\n패시브 - 상대방 타격 시, 20%화률로 상대방의 발밑이 한 칸 파임");
 }
 });
 iheal.setOnClickListener(new android.view.View.OnClickListener(){
