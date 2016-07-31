@@ -109,10 +109,6 @@ for(var n=0;n<36;n++)
 Player.clearInventorySlot(n);
 ESP.toast("인벤토리가 리셋되었습니다.");
 });
-var mqtt = makeButton("QTT", function(){
-ModPE.leaveGame();
-ESP.toast("Quit to Title.");
-});
 var msend = makeButton("Return", function(){ESP.send(ad);});
 var msb2 = makeButton("초능력자 대전+", function(){openESPManager2();});
 var mwb = makeButton("마법사 대전", function(){ESP.callFunc("wizardBattle", []);});
@@ -258,7 +254,6 @@ function(){
 ep.tf = false;
 },
 ep.tf);
-var mdc = makeButton("Death Count", function(){showDeathCount();});
 var mparty = makeButton("Party", function(){Party.openManager();});
 mrm.setTextOn("Removing Mobs");
 mrm.setTextOff("Removing Mobs");
@@ -389,7 +384,6 @@ layout.addView(mreset);
 layout.addView(mal);
 layout.addView(mal2);
 layout.addView(mal3);
-layout.addView(mdc);
 layout.addView(mparty);
 layout.addView(madd);
 layout.addView(madd2);
@@ -400,7 +394,6 @@ layout.addView(mkill);
 layout.addView(mkill2);
 layout.addView(mkill3);
 layout.addView(msend);
-layout.addView(mqtt);
 layout.addView(msb2);
 layout.addView(mwb);
 layout.addView(melse);
