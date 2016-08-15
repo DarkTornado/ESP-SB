@@ -1,0 +1,162 @@
+﻿if(menuS==null){
+ctx.runOnUiThread(new java.lang.Runnable({
+run: function(){
+try{
+menuS = new PopupWindow();
+var layout = new LinearLayout(ctx);
+layout.setOrientation(1);
+var text = new TextView(ctx);
+text.setText("ESP\nManager\n");
+text.setTextSize(25);
+text.setGravity(Gravity.CENTER);
+text.setTextColor(Color.CYAN);
+layout.addView(text);
+var mss = new ToggleButton(ctx);
+var mbgm = new ToggleButton(ctx);
+var mclock = new Button(ctx);
+var madd = new Button(ctx);
+var minv = new Button(ctx);
+var mgo = new Button(ctx);
+var mqtt = new Button(ctx);
+var minfo = new Button(ctx);
+var mmulti = new Button(ctx);
+var msexit = new Button(ctx);
+mss.setTextOn("Screen Shot");
+mss.setTextOff("Screen Shot");
+mbgm.setTextOn("BGM on");
+mbgm.setTextOff("BGM off");
+mclock.setText("Clock Moving");
+madd.setText("Add Item");
+minv.setText("Reset Inv.");
+mgo.setText("Go to...");
+mqtt.setText("QTT");
+minfo.setText("도움말");
+mmulti.setText("서버장 모드");
+msexit.setText("EXIT");
+if(btnSS!=null) mss.setChecked(true);
+else mss.setChecked(false);
+mbgm.setChecked(bgmOnoff);
+mss.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+if(onoff==true){
+makeScreenShotButton();
+}
+else if(onoff==false){
+if(btnSS!=null){
+btnSS.dismiss();
+btnSS = null;
+}
+}
+}
+}));
+mbgm.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+onCheckedChanged : function(toggle, onoff){
+bgmPlayer(onoff);
+}
+}));
+mclock.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+clockMoving();
+}
+});
+madd.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+addItem(true);
+}
+});
+mgo.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+goToPlayer();
+}
+});
+minv.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+for(var n=0;n<36;n++)
+Player.clearInventorySlot(n);
+ESP.toast("인벤토리가 리셋되었습니다.");
+}
+});
+mqtt.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+ModPE.leaveGame();
+ESP.toast("Quit to Title.");
+if(btn!=null){
+btn.dismiss();
+btn = null;
+}
+if(btnSS!=null){
+btnSS.dismiss();
+btnSS = null;
+}
+if(menuS!=null){
+menuS.dismiss();
+menuS = null;
+ESP.toast("ESP Manager off");
+}
+}
+});
+minfo.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+ESP.infoDialog("초능력자 대전", "\"초능력자 대전\"은 Dark Tornado가 만든 능력자 스크립트로서, 무단 공유는 허용하나, 무단 수정 및 자신이 만들었다고 주장하는 행위는 금지하며, 그냥 또는 학습을 위해 열어보는 것은 허용합니다.\n대략적인 사용법은 명령어 \"/help\"또는 \"/도움말\"을 치시면 나옵니다.\n오른쪽 아래의 \"EM\"버튼으로 on/off되는 이 버튼들(?)은 \"ESP Manager\"이며, 이곳에 있는 기능들은 대부분이 명령어로도 사용이 가능합니다. EM버튼은 위치 수정이 가능합니다.\nESP Manager의 기능들은 능력 비활성화(타 스크립트의 능력자의 경우 불가)와 능력자 전송, 사살, 회복 등이며, 서버관리자의 기능도 어느정도는 있습니다. 기능들은 버튼의  내용을 해석하시면 될 듯 싶습니다.\nESP Manager가 지원하는 능력자 스크립트는 초능력자 대전, 초능력자 대전+와 ESP-Else에 속한 능력자들입니다. ESP Manager는 마법사 대전의 Wizard Manager, ESP-Else의 능력 on/off 기능과 연동되어 있습니다.\n지금은 타인의 서버에 서버원으로 들어가는 것이기 때문에 능력각성이 및 ESP Manager의 일부 기능이 제한됩니다.\n", " 2014-2016 Dark Tornado\n(http:\/\/blog.naver.com\/dt3141592)");
+}
+});
+mmulti.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+multi = false;
+ESP.toast("서버장 모드로 변경되었습니다.");
+if(menuS!=null){
+menuS.dismiss();
+menuS = null;
+}
+if(menuP!=null){
+menuP.dismiss();
+menuP = null;
+}
+}
+});
+msexit.setOnClickListener(new View.OnClickListener(){
+onClick: function(v){
+if(menuS!=null){
+menuS.dismiss();
+menuS = null;
+}
+}
+});
+layout.addView(mss);
+layout.addView(mbgm);
+layout.addView(mclock);
+layout.addView(madd);
+layout.addView(minv);
+layout.addView(mgo);
+layout.addView(mqtt);
+layout.addView(minfo);
+layout.addView(mmulti);
+layout.addView(msexit);
+var scroll = makeScroll(layout, menuS);
+menuS.setContentView(scroll);
+menuS.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.argb(150, 0, 0, 0)));
+menuS.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
+ESP.toast("ESP Manager on");
+}
+catch(e){
+clientMessage(e+", "+e.lineNumber);
+}
+}
+}));
+}
+else if(menuS!=null){
+ctx.runOnUiThread(new java.lang.Runnable({
+run: function(){
+try{
+if(menuS!=null){
+menuS.dismiss();
+menuS = null;
+}
+}
+catch(e){
+clientMessage("error : "+e);
+}
+}
+}));
+ESP.toast("ESP Manager off");
+}
