@@ -1,23 +1,23 @@
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-var dialog = new android.app.AlertDialog.Builder(ctx, holoDark);
-var layout = new android.widget.LinearLayout(ctx);
-layout.setGravity(android.view.Gravity.CENTER);
+var dialog = new AlertDialog.Builder(ctx, holoDark);
+var layout = new LinearLayout(ctx);
+layout.setGravity(Gravity.CENTER);
 layout.setOrientation(1);
-var layout1 = new android.widget.LinearLayout(ctx);
-layout1.setGravity(android.view.Gravity.CENTER);
+var layout1 = new LinearLayout(ctx);
+layout1.setGravity(Gravity.CENTER);
 layout1.setOrientation(0);
-var ifire = new android.widget.Button(ctx);
-var iwater = new android.widget.Button(ctx);
+var ifire = new Button(ctx);
+var iwater = new Button(ctx);
 ifire.setText("  Fire User  ");
 iwater.setText("  Water Contoller  ");
-ifire.setOnClickListener(new android.view.View.OnClickListener(){
+ifire.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Fire User", "파이어 서먼 - 불을 3×3+4로 소환한다.\n플레임 홀 - 3×3의 구멍을 소환하며, 그 구멍의 바닥에 불을 붙인다.\n파이어 샷 - 바라보는 방향으로 불이 나간다\n버닝 애어리아 - 자신의 주변에 불이 붙은 네더랙 울타리를 만들고, 불을 소환한다. 상당히 많이 나오며, 용암도 매우 약간 나온다.\n패시브 - 불속에서 체력고정&몸에 불 안붙음.");
 }
 });
-iwater.setOnClickListener(new android.view.View.OnClickListener(){
+iwater.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Water Controller", "워터 서먼 - 흐르는 물을 소환한다.\n워터 바인드 - 중심 방향으로 흐르는 물을 소환한다. 물살 때문에 뻐져나가기가 힘들다.\n워터 배리어 - 자신의 주변에 밖으로 흐르는 물을 소환하고, 자신의 주위에는 얼음을 둘러, 자신에게는 물이 오지 않게 한다.\n하늘에서 물이 내린다.\n패시브 - 물속에서 체력고정&공격력 1 증가");
 }
@@ -25,19 +25,19 @@ ESP.skillInfo("Water Controller", "워터 서먼 - 흐르는 물을 소환한다
 layout1.addView(ifire);
 layout1.addView(iwater);
 
-var layout2 = new android.widget.LinearLayout(ctx);
-layout2.setGravity(android.view.Gravity.CENTER);
+var layout2 = new LinearLayout(ctx);
+layout2.setGravity(Gravity.CENTER);
 layout2.setOrientation(0);
-var itree = new android.widget.Button(ctx);
-var icreeper = new android.widget.Button(ctx);
+var itree = new Button(ctx);
+var icreeper = new Button(ctx);
 itree.setText("  Nature Guardian  ");
 icreeper.setText("  I am Creeper  ");
-itree.setOnClickListener(new android.view.View.OnClickListener(){
+itree.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Nature Guardian", "모노트리 - 나무를 한 구루 소환한다.\n우드 프리즌 - 나무로 만든 감옥에 상대를 가둔다. 중심에 불이있다.\n우드 무브 - 자신이 지나가는 곳을 따라서 나무가 자란다.\n라바 리프 - 한번터치하면 나뭇잎이 깔리고 한번 더 터치하면 나무가 중앙에서 자라고 나뭇잎 울타리가 생기며, 나뭇잎의 어래쪽에 용암이 깔린다. 용암 때문에 순간적으로 불이 붙게 된다.\n패시브 - 자신의 주위에 나무가 있으면, 체력이 25 이하라면 5초마다 체력 2회복");
 }
 });
-icreeper.setOnClickListener(new android.view.View.OnClickListener(){
+icreeper.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Creeper", "버스트 - 터진다. 자동수복 중에도 사용이 가능한 유일한 스킬\n트리플 범 - TNT 2개와 활성화된 TNT 하나를 소환한다\n와이드 익스플로션 - 자신의 주변을 폭파시킨다.\n메테오 - 폭발과 다수의 활성화된 TNT들을 떨어뜨린다.\n패시브 - 상대방을 때릴 시 20%확률로 상대방의 위치 폭발");
 }
@@ -45,19 +45,19 @@ ESP.skillInfo("I am Creeper", "버스트 - 터진다. 자동수복 중에도 사
 layout2.addView(itree);
 layout2.addView(icreeper);
 
-var layout3 = new android.widget.LinearLayout(ctx);
-layout3.setGravity(android.view.Gravity.CENTER);
+var layout3 = new LinearLayout(ctx);
+layout3.setGravity(Gravity.CENTER);
 layout3.setOrientation(0);
-var isoil = new android.widget.Button(ctx);
-var isummon = new android.widget.Button(ctx);
+var isoil = new Button(ctx);
+var isummon = new Button(ctx);
 isoil.setText("  Soil Master  ");
 isummon.setText("  The Summoner  ");
-isoil.setOnClickListener(new android.view.View.OnClickListener(){
+isoil.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Soil Master", "언더그라운드 - 3×3으로 땅을 함몰시키고, 그 위를 자갈로 덮는다.\n라바 홀 - 3×3으로 구멍을 뚫는다. 중심에는 (멈춘)용암이 있다.\n스톤 프리즌 - 돌(사암)내부에 사람을 가둔다, 중심에는 (멈춘)용암이 있다.\n싱크홀 - 자신의 주변에 큰 구멍을 만들고, 그 속에 약간의 용암을 넣는다.\n패시브 - 돌, 흙, 잔디가 난 흙, 모래, 자갈, 사암, 조약돌로 생매장 데미지를 줄 수 없음.");
 }
 });
-isummon.setOnClickListener(new android.view.View.OnClickListener(){
+isummon.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Summoner", "좀비 서먼 - 좀비와 좀비 피그맨들을 소환한다.\n스위사이더 - 크리퍼들을 소환한다\n아처스 - 스켈레톤과 스파이더 조키를 소환한다.단, 스파이더 조키는 서버원들에게 정상적으로 보이지 않는다.\n마스터 서먼 - 모든 종류의 몹을 소환한다. 단, 푸드 파인더(돼지를 탄 좀비피그맨)는 서버원들에게 정상적으로 보이지 않는다.\n패시브 - 모자로 때리면 때린 엔티티 탑승. 윗옷으로 때리면 때린 엔티티를 자신이게 태움.");
 }
@@ -65,19 +65,19 @@ ESP.skillInfo("The Summoner", "좀비 서먼 - 좀비와 좀비 피그맨들을 
 layout3.addView(isoil);
 layout3.addView(isummon);
 
-var layout4 = new android.widget.LinearLayout(ctx);
-layout4.setGravity(android.view.Gravity.CENTER);
+var layout4 = new LinearLayout(ctx);
+layout4.setGravity(Gravity.CENTER);
 layout4.setOrientation(0);
-var ilight = new android.widget.Button(ctx);
-var idark = new android.widget.Button(ctx);
+var ilight = new Button(ctx);
+var idark = new Button(ctx);
 ilight.setText("  The Luminous  ");
 idark.setText("  The Darkness  ");
-ilight.setOnClickListener(new android.view.View.OnClickListener(){
+ilight.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Luminous", "홀리블록 - 신성한 블록(?)을 소환한다.\n라이트 바인드 - 중앙에 불이 있는 것으로, 상대를 구속한다. 위에서 TNT가 한 떨어진다.\n루미너스 바인드 - 라이트 바인드에서 용암대신에 물이 흘러, 외부와의 접촉을 차단한다, 중간에 물이 사라지며, 바인드가 풀린다.\n홀리 애로우 스트라이크 - 하늘에서 많은 양의 화살이 떨어지고, 발광석이 내려와 폭발한다.\n패시브 - 낮에 공격력 1 증가");
 }
 });
-idark.setOnClickListener(new android.view.View.OnClickListener(){
+idark.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Darkness", "다크 블록 - 옵시디언과 용암을 소환한다.\n다크니스 트리 - 검은 나무를 소환한다.\n다크니스 바인드 - 상대를 구속한다. 용암이 너무 강하기 때문에 바인드가 빨리 폴린다.\n디아볼릭 이미션 - 순수마력공격. 검은 구체(옵시디언)이 점점 커지며, 범위내에있는 모든 존재에게 순수마력공격을 한다고는 하지만, 사실상 생매장.\n패시브 - 밤에 공격력 1 증가");
 }
@@ -85,19 +85,19 @@ ESP.skillInfo("The Darkness", "다크 블록 - 옵시디언과 용암을 소환�
 layout4.addView(ilight);
 layout4.addView(idark);
 
-var layout5 = new android.widget.LinearLayout(ctx);
-layout5.setGravity(android.view.Gravity.CENTER);
+var layout5 = new LinearLayout(ctx);
+layout5.setGravity(Gravity.CENTER);
 layout5.setOrientation(0);
-var iice = new android.widget.Button(ctx);
-var isand = new android.widget.Button(ctx);
+var iice = new Button(ctx);
+var isand = new Button(ctx);
 iice.setText("  The Freezer  ");
 isand.setText("  Desert Maker  ");
-iice.setOnClickListener(new android.view.View.OnClickListener(){
+iice.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Freezer", "아이스 홀 - 구멍을 둟고, 얼음으로 그 위를 덮는다.\n윈터 바인드 - 눈사람과 얼음이 있는 바인드로 상대방을 구속한다.\n아이스 익스플로션 - 상대방늘 얼음 내부에 가둔 뒤, 터트린다.\n이글루 - 이글루 같지는 않지만, 얼음으로 된 집을 소환한다.\n패시브 - 자신의 주위에 눈이나 얼음이 있으면, 체력이 25 이하라면 5초마다 체력 2회복");
 }
 });
-isand.setOnClickListener(new android.view.View.OnClickListener(){
+isand.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Desert Maker", "버닝바디 - 상대의 몸에 불을 붙인다.\n카투스 홀 - 선인장이 있는 구덩이를 소환한다.\n샌드 익스플로션 - 상대방을 모래 속에 가두고 폭발시킨다.\n데저트 서먼 - 사막의 일부를 소환한다.\n패시브 - 자신의 발밑에 모래나 사암이 있으면, 체력이 25 이하라면 5초마다 체력 2회복");
 }
@@ -105,19 +105,19 @@ ESP.skillInfo("Desert Maker", "버닝바디 - 상대의 몸에 불을 붙인다.
 layout5.addView(iice);
 layout5.addView(isand);
 
-var layout6 = new android.widget.LinearLayout(ctx);
-layout6.setGravity(android.view.Gravity.CENTER);
+var layout6 = new LinearLayout(ctx);
+layout6.setGravity(Gravity.CENTER);
 layout6.setOrientation(0);
-var iblood = new android.widget.Button(ctx);
-var iair = new android.widget.Button(ctx);
+var iblood = new Button(ctx);
+var iair = new Button(ctx);
 iblood.setText("  The Vampire  ");
 iair.setText("  Air Bander  ");
-iblood.setOnClickListener(new android.view.View.OnClickListener(){
+iblood.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Vampire", "딜리트 - 상대의 체력 6을 지운다.\n앱솔션 - 상대의 체력 5를 흡수한다.\n텔레포트 - 터치한 방향으로 순간이동.\n나이트메어 - 한번 터치하면 밤이되고(+체력 15증가), 그 상태에서 상대방을 때리면 상대방의 체력이 20 이하이면 1로만들고, 초과면 20을 지운다(+체력 15 증가).\n패시브 - 상대방 타격 시, 낮에는 50%, 밤에는 100%의 확률로 체력 1 흡수.");
 }
 });
-iair.setOnClickListener(new android.view.View.OnClickListener(){
+iair.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Air Bander", "윈드워크 - 터치한 방향으로 빠르게 이동한다. 쿨타임 5초\n애어 돔 - 유리(공기의 장벽?)로 상대방을 가두거나, 자신을 감싼다.\n푸시 - 상대방을 밀친다.\n하이퍼 스로우 - 상대방을 상당히 높이 던진다.\n패시브 - 상대방을 때릴 시, 1/5확률로 넉백");
 }
@@ -125,19 +125,19 @@ ESP.skillInfo("Air Bander", "윈드워크 - 터치한 방향으로 빠르게 이
 layout6.addView(iblood);
 layout6.addView(iair);
 
-var layout7 = new android.widget.LinearLayout(ctx);
-layout7.setGravity(android.view.Gravity.CENTER);
+var layout7 = new LinearLayout(ctx);
+layout7.setGravity(Gravity.CENTER);
 layout7.setOrientation(0);
-var ielsa = new android.widget.Button(ctx);
-var ititan = new android.widget.Button(ctx);
+var ielsa = new Button(ctx);
+var ititan = new Button(ctx);
 ielsa.setText("  I am Elsa  ");
 ititan.setText("  Mass Titan  ");
-ielsa.setOnClickListener(new android.view.View.OnClickListener(){
+ielsa.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Elsa", "아이스 샷 - 바라보는 방향으로 바닥이 얼음이 깔린다(폭발동반).\n프로즌 플레이트 - 바닥을 얼음으로 깐다(폭발동반).\n아이스 타워 - 상대를 얼음 탑 내부에 가둔 뒤, 폭파시킨다.\n아이스 팔래스 - 허접한 얼음궁전이 나온다.\n패시브 - 얼음 위에 있을 시, 체력이 25 이하라면 5초마다 체력 2 회복");
 }
 });
-ititan.setOnClickListener(new android.view.View.OnClickListener(){
+ititan.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Mass Titan", "이팅타임 - 많은 양의 케이크롤 소환한다. 약간의 구운 돼지고기도 소환된다.\n푸드 익스폴로션 - 터치하면 케이크가 나오고, 한번 더 터치하면 캐이크가 폭발한다.\n스토머크 - 위장를 소환해 상대방을 가둔다. 위장 내부에는 오늘 아침에 먹은 케이크 4개가 있고, 위에서 위액(용암)이 내려온다.\n아이엠 타이탄 - 상대의 체력 15를 소모하여 질량거인을 소환한다. 소환된 질량거인은 점프를 하여 주의를 폭파시키며, 땅을 터치하기 전 능력아이템으로 미리  상대방을 한대 때려놓으면, 그 맞은 사람의 체력이 15 내려간다. 타케팅(?)을 하지 않으면, 자신의 체력을 소모한다. 쿨타임 2분 30초\n패시브 - 케이크 섭취시 체력이 25 이하라면 체력 1 추가회복");
 }
@@ -145,19 +145,19 @@ ESP.skillInfo("Mass Titan", "이팅타임 - 많은 양의 케이크롤 소환한
 layout7.addView(ielsa);
 layout7.addView(ititan);
 
-var layout8 = new android.widget.LinearLayout(ctx);
-layout8.setGravity(android.view.Gravity.CENTER);
+var layout8 = new LinearLayout(ctx);
+layout8.setGravity(Gravity.CENTER);
 layout8.setOrientation(0);
-var ithunder = new android.widget.Button(ctx);
-var ibind = new android.widget.Button(ctx);
+var ithunder = new Button(ctx);
+var ibind = new Button(ctx);
 ithunder.setText("  Thunder Breaker  ");
 ibind.setText("  The Binder  ");
-ithunder.setOnClickListener(new android.view.View.OnClickListener(){
+ithunder.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Thunder Breaker", "일렉트로 샷 – 바라보는 방향으로 번개(=발광석+폭발)를 발사한다.\n선더볼트 – 자신의 주변에 약한 낙뢰를 떨어트린다.\n라이트닝 볼트 – 한번 터치하면 그 장소가 기억되고, 한번 더 터치하면 그 장소에 낙뢰가 떨어진다.\n선더폴 – 자신의 주위에 전기 울타리를 형성한 후 낙뢰들을 떨어트린다. 이펙트만 화려하고 그렇게 많이 아프지는 않다.\n패시브 - 상대방을 때릴 시, 1/5확률로 감전(?)");
 }
 });
-ibind.setOnClickListener(new android.view.View.OnClickListener(){
+ibind.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Binder", "바인드 - 거미줄 5개를 소환한다.\n바인드 샷 - 바라보는 방향으로 거미줄을 발사한다.\n바인드 버스트 - 거미줄과 폭탄을 소환한다.\n쉐도우 웹 - 거미줄이 30초간 상대방을 따라다닌다.\n패시브 - 거미줄 터치시 거미줄 파괴");
 }
@@ -165,19 +165,19 @@ ESP.skillInfo("The Binder", "바인드 - 거미줄 5개를 소환한다.\n바인
 layout8.addView(ithunder);
 layout8.addView(ibind);
 
-var layout9 = new android.widget.LinearLayout(ctx);
-layout9.setGravity(android.view.Gravity.CENTER);
+var layout9 = new LinearLayout(ctx);
+layout9.setGravity(Gravity.CENTER);
 layout9.setOrientation(0);
-var imeca = new android.widget.Button(ctx);
-var itnt = new android.widget.Button(ctx);
+var imeca = new Button(ctx);
+var itnt = new Button(ctx);
 imeca.setText("  The Mechanic  ");
 itnt.setText("  TNT Expert  ");
-imeca.setOnClickListener(new android.view.View.OnClickListener(){
+imeca.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Mechanic", "건 샷 – 바라보는 방향으로 큰 총(?)을 발사한다.\n크로스 버스트 – 자신의 주위에 TNT를 설치한 후 터트린다.\n센딩 – 한번 터치하면 그 위쪽에 수신기가 설치되고, 한번 더 터치하면 그 수신기로 TNT가 전송된다.\n라운드 머신 – 자신의 주위에 네더코어들을 소환하여, 위에서 무언가를 발사한다. \n패시브 - 5초마다 자신의 체력을 확인, 20 미만이면 1을 회복.");
 }
 });
-itnt.setOnClickListener(new android.view.View.OnClickListener(){
+itnt.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("TNT Expert", "범 서먼 - 한개의 활성화된 TNT를 소환한다.\n트리블 익스블로시브 - 3개의 TNT를 소환한다. 0.25초 정도 뒤에 저절로 활성화가 된다(∵작은 폭발, 원래는 9개였으나, 하향됨)\n언더 범 - TNT 8개를 땅속에 넣는다. 거의 아프지 않다.\n언더그라운드 버스트 - 땅속에 TNT를 +모양으로 설치, 폭파시킨다. 사용시 최대한 먼 곳을 터치한 뒤 뒤로 빠지면서 사용하는 것을 추천한다.\n패시브 - 상대방 타격 시 10%화률로 상대방을 TNT위에 놓음");
 }
@@ -185,19 +185,19 @@ ESP.skillInfo("TNT Expert", "범 서먼 - 한개의 활성화된 TNT를 소환�
 layout9.addView(imeca);
 layout9.addView(itnt);
 
-var layout10 = new android.widget.LinearLayout(ctx);
-layout10.setGravity(android.view.Gravity.CENTER);
+var layout10 = new LinearLayout(ctx);
+layout10.setGravity(Gravity.CENTER);
 layout10.setOrientation(0);
-var itrap = new android.widget.Button(ctx);
-var iheal = new android.widget.Button(ctx);
+var itrap = new Button(ctx);
+var iheal = new Button(ctx);
 itrap.setText("  Trap Creater  ");
 iheal.setText("  The Healer  ");
-itrap.setOnClickListener(new android.view.View.OnClickListener(){
+itrap.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Trap Creater", "버스트 트랩 - 땅속에 폭탄을 설치, 폭파시킨다.\n파이어 트랩 - 땅속에 함정을 설치, 소규모 불구덩이(3×3×2)를 만든다.\n버닝 트랩 - 땅에 함정을 설치, 하나의 용암과 4개의 불을 소환한다. 불은 용암이 흐르면서 꺼진다.\n트랩 오브 헬 - 땅에 함정을 설치, 상대방을 베드락 내부에 가두고 족친다(?).\n패시브 - 상대방 타격 시, 20%화률로 상대방의 발밑이 한 칸 파임");
 }
 });
-iheal.setOnClickListener(new android.view.View.OnClickListener(){
+iheal.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Healer", "쿠어 - 자신의 체력 6을 회복한다.\n힐 - 자신의 체력 5, 타인의 체력 4를 회복한다.\n바인드 - 거미줄을 3×3으로 소환한다(도주용).\n이모탈리티 - 30초간 체력 고정\n패시브 - 5초마다 체력 2 회복");
 }
@@ -205,19 +205,19 @@ ESP.skillInfo("The Healer", "쿠어 - 자신의 체력 6을 회복한다.\n힐 -
 layout10.addView(itrap);
 layout10.addView(iheal);
 
-var layout11 = new android.widget.LinearLayout(ctx);
-layout11.setGravity(android.view.Gravity.CENTER);
+var layout11 = new LinearLayout(ctx);
+layout11.setGravity(Gravity.CENTER);
 layout11.setOrientation(0);
-var inether = new android.widget.Button(ctx);
-var icloud = new android.widget.Button(ctx);
+var inether = new Button(ctx);
+var icloud = new Button(ctx);
 inether.setText("  Nether Man  ");
 icloud.setText("  Cloud Manager  ");
-inether.setOnClickListener(new android.view.View.OnClickListener(){
+inether.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Nether Man", "네더랙즈 - 네더랙과 불을 소환한다.\n라바 서먼 - 흐르는 용암 하나를 소환한다.\n네더 바인드 - 네더랙으로 상대방을 구속한다. 바인드 내부에서는 좀비피그맨 1명이 대기하고 있다.\n네더 서먼 - 네더월드의 일부를 소환한다.\n패시브 - 네더랙 위에 있을 시 체력이 25 이하라면 5초마다 체력 2 회복");
 }
 });
-icloud.setOnClickListener(new android.view.View.OnClickListener(){
+icloud.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Cloud Manager", "클라우드 서먼 - 상대를 작은 구름(3×3)에 가둔다(폭발동반).\n선더 클라우드 - 작은 뇌운을 소환한다. 한 번 더 터치하면 벼락(?)이 떨어진다.\n클라우드 라이딩 - 10초 간 근두은 탑승.\n라지 미스트 - 큰 구름(?)을 소환한다.\n패시브 - 구름(흰 양털)위에서 체력이 25 이하라면 2회복");
 }
@@ -225,19 +225,19 @@ ESP.skillInfo("Cloud Manager", "클라우드 서먼 - 상대를 작은 구름(3�
 layout11.addView(inether);
 layout11.addView(icloud);
 
-var layout12 = new android.widget.LinearLayout(ctx);
-layout12.setGravity(android.view.Gravity.CENTER);
+var layout12 = new LinearLayout(ctx);
+layout12.setGravity(Gravity.CENTER);
 layout12.setOrientation(0);
-var iass = new android.widget.Button(ctx);
-var iarrow = new android.widget.Button(ctx);
+var iass = new Button(ctx);
+var iarrow = new Button(ctx);
 iass.setText("  The Assassin  ");
 iarrow.setText("  Arrow Shooter  ");
-iass.setOnClickListener(new android.view.View.OnClickListener(){
+iass.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Assassin", "플래시 점프 - 터치한 방향으로 포물선 모양으로 점프한다(서버원은 잘 안될 수 있음).\n어썰터 - 터치항 방향으로 빠르게 이동하며 터치한 곳이 폭발한다.\n비하인드 버스트 - 자신의 뒤를 폭파시킨다.\n어쌔시네이선 - 상대방의 체력을 0~3사이의 정수로 설정한다.\n패시브 - 공격력 1 증가");
 }
 });
-iarrow.setOnClickListener(new android.view.View.OnClickListener(){
+iarrow.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Arrow Shooter", "파이어 애로우 - 불화살을 소환한다.\n애로우 버스트 - 터치항 곳 위에서 화살이 하나 떨어진다. 화사리 떨어진 자리는 폭발한다.\n아처 샷 - 바라보는 방향으로 스켈레톤을 한마리 날린다.\n애로우 레인 버스트 - 밑에 폭반을 설치하도, 불화살을 떨어뜨려 폭파시킨다+화살비.\n패시브 - 일반공격시 20%확률로 상대방의 위에서 화살이 떨어진다.");
 }
@@ -245,19 +245,19 @@ ESP.skillInfo("Arrow Shooter", "파이어 애로우 - 불화살을 소환한다.
 layout12.addView(iass);
 layout12.addView(iarrow);
 
-var layout13 = new android.widget.LinearLayout(ctx);
-layout13.setGravity(android.view.Gravity.CENTER);
+var layout13 = new LinearLayout(ctx);
+layout13.setGravity(Gravity.CENTER);
 layout13.setOrientation(0);
-var image = new android.widget.Button(ctx);
-var idefense = new android.widget.Button(ctx);
+var image = new Button(ctx);
+var idefense = new Button(ctx);
 image.setText("  The Mage  ");
 idefense.setText("  The Defenser  ");
-image.setOnClickListener(new android.view.View.OnClickListener(){
+image.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Mage", "파이어 샷 - 바라보는 방햔으로 불을 발사한다.\n워터 프로텍션 - 물로 자신을 방어한다.\n우드 베리어 - 나무로 된 벽을 소환한다.\n서라운드 악스플로션 - 자신의 주변을 터트린다.\n패시브 - 피격 시 50%확률로 공격무시(플레이어에게만 적용).");
 }
 });
-idefense.setOnClickListener(new android.view.View.OnClickListener(){
+idefense.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Defenser", "베이직 베리어 - 흙으로 된 작은 벽을 소환한다.\n바인드 베리어 - 거마줄로 된 벽을 소환한다.\n버스트 실드 - 유리로 된 벽을 소환한다. 한번 더 터차하면 터진다,\n하이퍼 프로택션 어택 - 자신의 주변을 베드락으로 막고, 주변을 터트린다.\n패시브 - 방어력 2 증가");
 }
@@ -265,19 +265,19 @@ ESP.skillInfo("The Defenser", "베이직 베리어 - 흙으로 된 작은 벽을
 layout13.addView(image);
 layout13.addView(idefense);
 
-var layout14 = new android.widget.LinearLayout(ctx);
-layout14.setGravity(android.view.Gravity.CENTER);
+var layout14 = new LinearLayout(ctx);
+layout14.setGravity(Gravity.CENTER);
 layout14.setOrientation(0);
-var ipoison = new android.widget.Button(ctx);
-var imelt = new android.widget.Button(ctx);
+var ipoison = new Button(ctx);
+var imelt = new Button(ctx);
 ipoison.setText("  Poison Maven  ");
 imelt.setText("  Ground Melter  ");
-ipoison.setOnClickListener(new android.view.View.OnClickListener(){
+ipoison.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Poison Maven", "더블어택 - 상대방을 2번 때린다(뒤에 한대는 독 때문에 맞은거).\n포이즌 버틀 - 독이 담긴 병을 소환한다. 이 병은 터진다.\n에딕션 - 상대방을 독이 중독사켜, 지속적으로 체력이 낮아지도록 만든다.\n포이즌 미스트 이럽션 - 자신의 주변에 독안대를 소환, 폭파시킨다.\n패시브 - 공격력 1 증가.");
 }
 });
-imelt.setOnClickListener(new android.view.View.OnClickListener(){
+imelt.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Ground Melter", "펜타 라바 - 용암 5개를 소환한다.\n라바 실드 - 용암 방패를 소환한다(펜타 라바 새워놓은 거).\n멜팅라인 - 1자로 땅을 녹인다.\n라바 커튼 - 용암으로 된 커튼을 소환한다.\n패시브 - 용암 속에서 체력 고정");
 }
@@ -285,19 +285,19 @@ ESP.skillInfo("Ground Melter", "펜타 라바 - 용암 5개를 소환한다.\n�
 layout14.addView(ipoison);
 layout14.addView(imelt);
 
-var layout15 = new android.widget.LinearLayout(ctx);
-layout15.setGravity(android.view.Gravity.CENTER);
+var layout15 = new LinearLayout(ctx);
+layout15.setGravity(Gravity.CENTER);
 layout15.setOrientation(0);
-var ihfreeze = new android.widget.Button(ctx);
-var ibuilder = new android.widget.Button(ctx);
+var ihfreeze = new Button(ctx);
+var ibuilder = new Button(ctx);
 ihfreeze.setText("  Hyper Freezer  ");
 ibuilder.setText("  The Builder  ");
-ihfreeze.setOnClickListener(new android.view.View.OnClickListener(){
+ihfreeze.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hyper Freezer", "콜드 빔 - 얼음을 소환, 터트린다.\n아이스 바인드 - 상대방을 얼음안에 가둔다.\n프리징 스탭 - 얼음판이 자신을 따라온다.\n블리자드 - 하늘에서 얼음이 떨어진다.\n패시브 - 얼음 위에서 체력 고정")
 }
 });
-ibuilder.setOnClickListener(new android.view.View.OnClickListener(){
+ibuilder.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Builder", "펜스 - 울타리를 소환한다.\n우드 하우스 - 작은 나무집을 소환힌다. 한번 더 터치하면 집안에 불이 붙는다.\n스톤 하우스 - 작은 돌집을 소환힌다. 한번 더 터치하면 폭발한다.\n빌딩 - 상대적으로 고층인 건물을 소환한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -305,19 +305,19 @@ ESP.skillInfo("The Builder", "펜스 - 울타리를 소환한다.\n우드 하우
 layout15.addView(ihfreeze);
 layout15.addView(ibuilder);
 
-var layout16 = new android.widget.LinearLayout(ctx);
-layout16.setGravity(android.view.Gravity.CENTER);
+var layout16 = new LinearLayout(ctx);
+layout16.setGravity(Gravity.CENTER);
 layout16.setOrientation(0);
-var isoldier = new android.widget.Button(ctx);
-var ias = new android.widget.Button(ctx);
+var isoldier = new Button(ctx);
+var ias = new Button(ctx);
 isoldier.setText("  The Soldier  ");
 ias.setText("  The Assaulter  ");
-isoldier.setOnClickListener(new android.view.View.OnClickListener(){
+isoldier.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Soldier", "볼릿 - 바라보는 방향으로 총알(?)을 발사한다.\n마인 - 지뢰를 설치, 폭파시킨다.\n버스터 - 바라보는 방향으로 폭발을 발사한다(?).\n벙커 - The Mechanic의 것보다는 덜 허접한 벙커를 소환한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ias.setOnClickListener(new android.view.View.OnClickListener(){
+ias.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Assaulter", "어택 - 상대방을 공격한다.\n파이어 스로우 - 바라보는 방향에 화염병(?)을 떨군다.\n테트라 바인드 - 거미줄 4개를 소환한다.\n파이널 어택 - 상대방의 체력을 15~19, 주변에 있는 자들의 채력을 10 날려버린다.\n패시브 - 공격력 1 증가(궁극기 제외).");
 }
@@ -325,19 +325,19 @@ ESP.skillInfo("The Assaulter", "어택 - 상대방을 공격한다.\n파이어 �
 layout16.addView(isoldier);
 layout16.addView(ias);
 
-var layout17 = new android.widget.LinearLayout(ctx);
-layout17.setGravity(android.view.Gravity.CENTER);
+var layout17 = new LinearLayout(ctx);
+layout17.setGravity(Gravity.CENTER);
 layout17.setOrientation(0);
-var iburst = new android.widget.Button(ctx);
-var iwarrior = new android.widget.Button(ctx);
+var iburst = new Button(ctx);
+var iwarrior = new Button(ctx);
 iburst.setText("  The Burster  ");
 iwarrior.setText("  The Warrior  ");
-iburst.setOnClickListener(new android.view.View.OnClickListener(){
+iburst.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Burster", "마인 버스트 - 땅속에 폭탄을 설치, 폭파시킨다.\n버스트 히트 - 맞은 상대방이 터진다.\n버스트 샷 - 바라보는 방향으로 터진다.\nC3+ - 자신의 주변을 세게 터트린다.\n패시브 - 타격시 상대방이 20%확률로 터짐");
 }
 });
-iwarrior.setOnClickListener(new android.view.View.OnClickListener(){
+iwarrior.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Warrior", "그라운드 스메쉬 - 터치한 방향으로 세번 터트린다.\n소드 스윙 - 거대한(?) 칼을 휘두른다.\n소드 스팅 - 거대한(?) 칼로 찌른다.\n웨폰 차지 - 거대한(?) 칼들을 땅에 꽂는다.\n패시브 - 공격력 1 증가");
 }
@@ -345,19 +345,19 @@ ESP.skillInfo("The Warrior", "그라운드 스메쉬 - 터치한 방향으로 �
 layout17.addView(iburst);
 layout17.addView(iwarrior);
 
-var layout18 = new android.widget.LinearLayout(ctx);
-layout18.setGravity(android.view.Gravity.CENTER);
+var layout18 = new LinearLayout(ctx);
+layout18.setGravity(Gravity.CENTER);
 layout18.setOrientation(0);
-var iore = new android.widget.Button(ctx);
-var irich = new android.widget.Button(ctx);
+var iore = new Button(ctx);
+var irich = new Button(ctx);
 iore.setText("  Ore Collecter  ");
 irich.setText("  The Rich  ");
-iore.setOnClickListener(new android.view.View.OnClickListener(){
+iore.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Ore Collecter", "버닝 코얼 - 불이 붙은 석탄블록을 소환한다.\n아이언 오얼 샷 - 바라보는 방향으로 철광석을 발사한다.\n레드스톤 버스트 - 땅속으로부터 레드스톤을 끌어와 폭파시킨다.\n어밴던드 마인 - 폐광을 소환한다. 한번 더 터치하면 폭발한다.\n패시브 - 돌, 조약돌, 사암 터치시, 캐짐.");
 }
 });
-irich.setOnClickListener(new android.view.View.OnClickListener(){
+irich.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Rich", "골드 버스트 - 금을 소환, 터트린다.\n골드스킬 버스트 - 금과 철을 발사한다.\n라피스 라쥴리 베리어 - 청금석 벽을 소환한다.\n다이아몬드 하우스 - 다이아몬드로 된 집을 소환한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -365,19 +365,19 @@ ESP.skillInfo("The Rich", "골드 버스트 - 금을 소환, 터트린다.\n골�
 layout18.addView(iore);
 layout18.addView(irich);
 
-var layout19 = new android.widget.LinearLayout(ctx);
-layout19.setGravity(android.view.Gravity.CENTER);
+var layout19 = new LinearLayout(ctx);
+layout19.setGravity(Gravity.CENTER);
 layout19.setOrientation(0);
-var itp = new android.widget.Button(ctx);
-var ispace = new android.widget.Button(ctx);
+var itp = new Button(ctx);
+var ispace = new Button(ctx);
 itp.setText("  The Teleporter  ");
 ispace.setText("  Space Warrper  ");
-itp.setOnClickListener(new android.view.View.OnClickListener(){
+itp.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Teleporter", "텔레포트 - 터치한 곳으로 순간이동한다.\n킬 포인트 - 상대방의 시선 뒤로 순간이동한다.\n오버 텔레포트 - 나 또는 생대방을 위로 순간이동 시킨다.\n하이퍼 센딩 - 불구더이를 소환하고, 30초간 때리는 모든 엔티티를 불구덩이 솓으로 전송한다,\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ispace.setOnClickListener(new android.view.View.OnClickListener(){
+ispace.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Space Warrper", "텔레포트 - 터치한 방향으로 순간이동한다.\n트렌스페런트 베리어 - 보이지 않는 벽을 소환한다.\n언더 텔레포트 - 상대방을 땅록의 공간으로 보낸다\n블랙홀 - 베드락까지 구멍을 뚫는다. 물살 때문에 빨려들어간다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -385,19 +385,19 @@ ESP.skillInfo("Space Warrper", "텔레포트 - 터치한 방향으로 순간이�
 layout19.addView(itp);
 layout19.addView(ispace);
 
-var layout20 = new android.widget.LinearLayout(ctx);
-layout20.setGravity(android.view.Gravity.CENTER);
+var layout20 = new LinearLayout(ctx);
+layout20.setGravity(Gravity.CENTER);
 layout20.setOrientation(0);
-var isattack = new android.widget.Button(ctx);
-var iforce = new android.widget.Button(ctx);
+var isattack = new Button(ctx);
+var iforce = new Button(ctx);
 isattack.setText("  Surround Attacker  ");
 iforce.setText("  Force Shifter  ");
-isattack.setOnClickListener(new android.view.View.OnClickListener(){
+isattack.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Surround Attacker", "파이어 서라운드 - 자신의 주변에 불을 소환한다.\n홀 범 - 자신의 주변에 구멍을 뚫고 폭파시킨다.\n서라운드 버스트 - 자신의 주변을 폭파시킨다.\n멜팅 에어리아 - 자신의 주변을 녹인다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-iforce.setOnClickListener(new android.view.View.OnClickListener(){
+iforce.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Force Shifter", "일렉트로 스로우 - 바라보는 방향으로 전기에너지를 던진다.\n버스트 웨이브 - 터치한 방향으로 연쇄적인 폭발이 일어난다.\n크랙 - 바라보는 방향으로 따이 갈라진다(?).\n포스 릴리징 - 자신의 주변으로 에너지를 방출한다.\n패시브 - 피격시 50%확률로 공격반사(플래이어이게만 적용)");
 }
@@ -405,19 +405,19 @@ ESP.skillInfo("Force Shifter", "일렉트로 스로우 - 바라보는 방향으�
 layout20.addView(isattack);
 layout20.addView(iforce);
 
-var layout21 = new android.widget.LinearLayout(ctx);
-layout21.setGravity(android.view.Gravity.CENTER);
+var layout21 = new LinearLayout(ctx);
+layout21.setGravity(Gravity.CENTER);
 layout21.setOrientation(0);
-var irein = new android.widget.Button(ctx);
-var imagnet = new android.widget.Button(ctx);
+var irein = new Button(ctx);
+var imagnet = new Button(ctx);
 irein.setText("  I am Reinforce  ");
 imagnet.setText("  Magnetism Distorter  ");
-irein.setOnClickListener(new android.view.View.OnClickListener(){
+irein.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Reinforce", "헤임달 - 얼음덩어리릉 떨어뜨린다.\n라그나뢰크 - 3개의 점으로부터 바라보는 방향으로 마력을 발사한다.\n블러디 대거 - 자신의 주변에 블러디 대거를 날린다.\n미스텔테인 - 하늘로부터 석화의 창, \"미스텔테인\"을 떨어뜨린다.\n패시브 - 공격력 1 증가");
 }
 });
-imagnet.setOnClickListener(new android.view.View.OnClickListener(){
+imagnet.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Magnetism Distorter", "마그네틱 스로우 - 상대방을 마인카트에 탑승시킨 후, 자기장으로 마인카트를 위로 올린다.\n백 메탈 - 자기장으로 자신의 뒤이 철광석을 끌어올린다.\n아이언 익스플로션 - 자기장으로 주변에 철광석을 끌어올려 폭파시킨다.\n마그네틱 필드 - TNT가 실려있는 마인카트들을 날린다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -425,19 +425,19 @@ ESP.skillInfo("Magnetism Distorter", "마그네틱 스로우 - 상대방을 마�
 layout21.addView(irein);
 layout21.addView(imagnet);
 
-var layout22 = new android.widget.LinearLayout(ctx);
-layout22.setGravity(android.view.Gravity.CENTER);
+var layout22 = new LinearLayout(ctx);
+layout22.setGravity(Gravity.CENTER);
 layout22.setOrientation(0);
-var isteve = new android.widget.Button(ctx);
-var ihero = new android.widget.Button(ctx);
+var isteve = new Button(ctx);
+var ihero = new Button(ctx);
 isteve.setText("  I am Steve  ");
 ihero.setText("  I am Herobrine  ");
-isteve.setOnClickListener(new android.view.View.OnClickListener(){
+isteve.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Steve", "마인 - 블록들을 캔다.\n다이아몬드 픽엑스 - 다이아몬드 곡괭이를 소환한다. 한번 더 터치하면 터진다.\n우든 베리어 - 나무로 만든 벽을 소환한다.\n굿 바이 월드 - 다량의 TNT들을 설치, 폭파시킨다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ihero.setOnClickListener(new android.view.View.OnClickListener(){
+ihero.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Herobrine", "아크 텔레포트 - 한번 터치하면, 그 장소가 기억되고, 한번 더 터치하면 그 장소로 순간이동한다.\n네임E - 발광석으로 E자를 만든다. 한 번 더 터치라면 터진다.\n테트라 범 - 폭탄 4개를 소환, 터트린다.\n히로빈스 리턴 - 밤이되고, 폭발, 용암, 거미가나온다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -445,19 +445,19 @@ ESP.skillInfo("I am Herobrine", "아크 텔레포트 - 한번 터치하면, 그 
 layout22.addView(isteve);
 layout22.addView(ihero);
 
-var layout23 = new android.widget.LinearLayout(ctx);
-layout23.setGravity(android.view.Gravity.CENTER);
+var layout23 = new LinearLayout(ctx);
+layout23.setGravity(Gravity.CENTER);
 layout23.setOrientation(0);
-var ihermit = new android.widget.Button(ctx);
-var iclay = new android.widget.Button(ctx);
+var ihermit = new Button(ctx);
+var iclay = new Button(ctx);
 ihermit.setText("  The Hermit  ");
 iclay.setText("  Clay Gatherer  ");
-ihermit.setOnClickListener(new android.view.View.OnClickListener(){
+ihermit.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Hermit", "리프 버스터 - 바라보는 방향으로 나뭇잎을 발사한다.\n하이드아웃 - 나무위에 있는 집을 소환한다. 한번 더 터치하면 자신이, 상대방을 타치하면 상대방이 집안으로 이동한다.\n리프 라이딩 - 10초간 나뭇잎 탑승\n더 포레스트 - 숲을 소환한다.\n패시브 - 자신의 주위에 나무가 있다면, 체력 25 이하일 시 5초마다 체력 2 회복");
 }
 });
-iclay.setOnClickListener(new android.view.View.OnClickListener(){
+iclay.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Clay Gatherer", "클레이 베리어 - 점토 벽을 소환한다.\n클래이 버스트 - 점토 덩어리를 소환한다. 3초 뒤, 폭발한다.\n클레이 하우스 - 점토로 지은 집을 소환한다. 안에는 TNT가 하니 있다.\n클레이 풀링 - 점토 기둥들을 끌어올려 터트린다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -465,19 +465,19 @@ ESP.skillInfo("Clay Gatherer", "클레이 베리어 - 점토 벽을 소환한다
 layout23.addView(ihermit);
 layout23.addView(iclay);
 
-var layout24 = new android.widget.LinearLayout(ctx);
-layout24.setGravity(android.view.Gravity.CENTER);
+var layout24 = new LinearLayout(ctx);
+layout24.setGravity(Gravity.CENTER);
 layout24.setOrientation(0);
-var ikirito = new android.widget.Button(ctx);
-var ijungle = new android.widget.Button(ctx);
+var ikirito = new Button(ctx);
+var ijungle = new Button(ctx);
 ikirito.setText("  I am Kirito  ");
 ijungle.setText("  Jungle Former  ");
-ikirito.setOnClickListener(new android.view.View.OnClickListener(){
+ikirito.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Kirito", "소닉 리프 - 앞으로 돌진한다.\n호리젠털 스퀘어 - 사각형 모양으로 상대방을 공격한다(?).\n하울링 옥타브 - 불로 상대방을 찌른다.\n스타버스트 스크림 - 맞은 상대를 27번 터트린다.\n패시브 - 공격력 1 증가");
 }
 });
-ijungle.setOnClickListener(new android.view.View.OnClickListener(){
+ijungle.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Jungle Former", "모노 트리 - 정글 나무를 소환한다.\n정글 트리 - 큰 정글나무를 소환한다.\n모스스톤 프리즌 - 모스스톤으로 된 감옥을 소환한다. 감옥안에는 좀비가 있으며, 일정 시간이 지나면 터진다.\n언더 정글 트리 - 광범위한 곳을 물로 채우고, 위를 정글나무로 덮는다. 물속에는 좀비들이 있다.\n패시브 - 자신의 주위에 나무가 있다면, 체력 25 이하일 시 5초마다 체력 1 회복");
 }
@@ -485,19 +485,19 @@ ESP.skillInfo("Jungle Former", "모노 트리 - 정글 나무를 소환한다.\n
 layout24.addView(ikirito);
 layout24.addView(ijungle);
 
-var layout25 = new android.widget.LinearLayout(ctx);
-layout25.setGravity(android.view.Gravity.CENTER);
+var layout25 = new LinearLayout(ctx);
+layout25.setGravity(Gravity.CENTER);
 layout25.setOrientation(0);
-var ikanade = new android.widget.Button(ctx);
-var itime = new android.widget.Button(ctx);
+var ikanade = new Button(ctx);
+var itime = new Button(ctx);
 ikanade.setText("  I am Kanade  ");
 itime.setText("  Time Traveler  ");
-ikanade.setOnClickListener(new android.view.View.OnClickListener(){
+ikanade.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Kanade", "딜레이 - 터치한 방향으러 순간이동한다.\n헨드 소닉 - 헨드 소닉으로 상대방을 찔러, 데미지 7을 준다.\n디스토션 - 10초간 깨지지 않는 유리로 자신을 보호한다.\n하울링 - 자신의 주변을 순차저으로 터트린다.\n패시브 - 공격력 1 증가(핸드소닉 제외).");
 }
 });
-itime.setOnClickListener(new android.view.View.OnClickListener(){
+itime.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Time Traveler", "텔레포트 - 터치한 방량으로 이동한다(시간을 멈추고 움직였다는 설정).\n타임 스탑 어택 - 상대의 체력 10을 날려버린다(시간을 멈추고 때렸다는 설정).\n타임 바인드 - 상대방이 10초간 못움직인다.\n타임 스탑 - 30초간 맵 전체의 플래이어&몹&늑대의 움직임이 멈춘다.\n패시브 - 사망 시 부활, 20초간 생존. 생존 중 공격력 +3&터치한 곳으로 순간이동");
 }
@@ -505,19 +505,19 @@ ESP.skillInfo("Time Traveler", "텔레포트 - 터치한 방량으로 이동한�
 layout25.addView(ikanade);
 layout25.addView(itime);
 
-var layout26 = new android.widget.LinearLayout(ctx);
-layout26.setGravity(android.view.Gravity.CENTER);
+var layout26 = new LinearLayout(ctx);
+layout26.setGravity(Gravity.CENTER);
 layout26.setOrientation(0);
-var isnipe = new android.widget.Button(ctx);
-var izombie = new android.widget.Button(ctx);
+var isnipe = new Button(ctx);
+var izombie = new Button(ctx);
 isnipe.setText("  The Sniper  ");
 izombie.setText("  Zombie Employer  ");
-isnipe.setOnClickListener(new android.view.View.OnClickListener(){
+isnipe.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Sniper", "리모트 샷 - 바라보는 곳이 터진다.\n버닝 샷 - 바라보는 곳에 불이 붙는다.\n텔레포트 샷 - 바라보는 곳으로 순간이동한다.\n하이퍼 스나이프 - 하늘로 올라간 뒤, 30초간 자유사격&시정거리 2배로 증기\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-izombie.setOnClickListener(new android.view.View.OnClickListener(){
+izombie.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Zombie Employer", "펜타 좀비 - 좀비 5마리를 소환한다.\n파이어 좀비 - 불능력을 사용하는 좀비를 10초 간 소환한다.\n워터 좀비 - 물능력을 사용하는 좀비를 10초 간 소환한다.\n좀비 알미 - 체력이 25인 좀비 군단을 소환한다.\n패시브 - 모자로 좀비 타격시, 좀비 탑승");
 }
@@ -525,38 +525,38 @@ ESP.skillInfo("Zombie Employer", "펜타 좀비 - 좀비 5마리를 소환한다
 layout26.addView(isnipe);
 layout26.addView(izombie);
 
-var layout27 = new android.widget.LinearLayout(ctx);
-layout27.setGravity(android.view.Gravity.CENTER);
+var layout27 = new LinearLayout(ctx);
+layout27.setGravity(Gravity.CENTER);
 layout27.setOrientation(0);
-var inecro = new android.widget.Button(ctx);
-var iasuna = new android.widget.Button(ctx);
+var inecro = new Button(ctx);
+var iasuna = new Button(ctx);
 inecro.setText("  The Necromancer  ");
 iasuna.setText("  I am Asuna  ");
-inecro.setOnClickListener(new android.view.View.OnClickListener(){
+inecro.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Necromancer", "언데드 서먼 - 언데드 몹 5마리를 소환한다.\n스파이더 범 - 폭탄을 싣고있는 거미들을 소환한다.\n좀비 피그멘 - 좀비 피그맨들을 소환한다.\n좀비 피그맨 ESP - 능력을 사용하는 좀비 피그맨을 소환한다.\n패시브 - 모자로 언대드 몹 타격시, 탑승");
 }
 });
-iasuna.setOnClickListener(new android.view.View.OnClickListener(){
+iasuna.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Asuna", "리니어 - 상대방 타격시, 상대방의 체력 6을 지운다.\n슈팅스타 - 앞으로 돌진한다.\n스타 스플래시 - 맞은 상대를 8번 터트린다.\n플래싱 페너트레이터 - 터치한 방향으로 순간이동+터치한 곳을 기준으로 30칸 내에 있는 엔티티의 체력을 15~17 감소시킴.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
 layout27.addView(inecro);
 layout27.addView(iasuna);
-var layout28 = new android.widget.LinearLayout(ctx);
-layout28.setGravity(android.view.Gravity.CENTER);
+var layout28 = new LinearLayout(ctx);
+layout28.setGravity(Gravity.CENTER);
 layout28.setOrientation(0);
-var iholy = new android.widget.Button(ctx);
-var isolar = new android.widget.Button(ctx);
+var iholy = new Button(ctx);
+var isolar = new Button(ctx);
 iholy.setText("  Holy Knight  ");
 isolar.setText("  Solar Paladin  ");
-iholy.setOnClickListener(new android.view.View.OnClickListener(){
+iholy.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Holy Knight", "라이트 러쉬 - 바라보는 방향으로 돌진한다.\n라이트 스윙 - 빛을 휘두른다.\n라이트 버스터 - 바라보는 방향으로 빛의 힘을 날린다.\n홀리 소드 - 신성한 검을 휘두른다.\n패시브 - 공격력 1 증가");
 }
 });
-isolar.setOnClickListener(new android.view.View.OnClickListener(){
+isolar.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Solar Paladin", "파이어 서라운드 - 터치한 곳을 불로 감싼다.\n썬라이트 버스터 - 바라보는 방향으로 태양빛을 날린다.\n버닝 바디즈 - 자신의 주위에 있는 적들에게 불을 붙인다.\n소드 오브 썬 - 터치한 곳에 검을 꽂고, 자신을 중심으로 반경 50칸 안에 있는 적들의 체력-15&불을 붙인다.\n패시브 - 낮에 공격력 1 증가");
 }
@@ -564,19 +564,19 @@ ESP.skillInfo("Solar Paladin", "파이어 서라운드 - 터치한 곳을 불로
 layout28.addView(iholy);
 layout28.addView(isolar);
 
-var layout29 = new android.widget.LinearLayout(ctx);
-layout29.setGravity(android.view.Gravity.CENTER);
+var layout29 = new LinearLayout(ctx);
+layout29.setGravity(Gravity.CENTER);
 layout29.setOrientation(0);
-var ilunar = new android.widget.Button(ctx);
-var ihas = new android.widget.Button(ctx);
+var ilunar = new Button(ctx);
+var ihas = new Button(ctx);
 ilunar.setText("  Lunar Wizard  ");
 ihas.setText("  Hyper Assaulter  ");
-ilunar.setOnClickListener(new android.view.View.OnClickListener(){
+ilunar.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Lunar Wizard", "텔레포트 - 터치항 방향으로 순간이동.\n문라이트 버스터 - 바라보는 방향으로 달빛을 날린다.\n루나 베리어 - 달빛으로 만든 벽을 소환한다.\n스태프 오브 문 - 터치한 곳에 지팡이을 꽂고, 자신을 중심으로 반경 50칸 안에 있는 적들의 체력-17&거미줄.\n패시브 - 밤에 공격력 1 증가");
 }
 });
-ihas.setOnClickListener(new android.view.View.OnClickListener(){
+ihas.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hyper Assaulter", "어라운드 딜리트 - 자신을 중심으로 반경 10칸 내에 있는 상대방의 체력 5을 지운다.\n파이어 버스트 - 자신의 앞에 폭발+불을 붙인다.\n킬 포인트 어택 - The Teleporter의 킬 포인트+체력 6 감소.\n어라운드 어썰트 - 자신의 주위에 있는 엔티티들의 체력 감소. 자신과 가까울 수록 데미지를 더 받음.\n패시브 - 공격력 1 증가");
 }
@@ -584,19 +584,19 @@ ESP.skillInfo("Hyper Assaulter", "어라운드 딜리트 - 자신을 중심으�
 layout29.addView(ilunar);
 layout29.addView(ihas);
 
-var layout30 = new android.widget.LinearLayout(ctx);
-layout30.setGravity(android.view.Gravity.CENTER);
+var layout30 = new LinearLayout(ctx);
+layout30.setGravity(Gravity.CENTER);
 layout30.setOrientation(0);
-var irandom = new android.widget.Button(ctx);
-var izwei = new android.widget.Button(ctx);
+var irandom = new Button(ctx);
+var izwei = new Button(ctx);
 irandom.setText("  Random Ability  ");
 izwei.setText("  Reinforce Zwei  ");
-irandom.setOnClickListener(new android.view.View.OnClickListener(){
+irandom.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Random Ability", "버스트 파이어 - 터치한에 폭발이 일어나거나 불이 소환된다.\n랜덤 스킬 - 터치한 곳에 돌벽 또는 거미줄이 소환된거나, 터치한 방향으로 순간이동\n랜덤 어썰트 - 상대방의 체력 8감소 또는 10초간 불을 붙임 또는 위로 던짐.\n랜덤 어택 - 자신을 중심으로 반경 50칸 내에 있는 적들에게 불을 붙이거나, 큰 불구덩이를 소환하거나 크리퍼들을 소환하거나 메테오.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-izwei.setOnClickListener(new android.view.View.OnClickListener(){
+izwei.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Reinforce Zwei", " 아이스 버스터 - 바라보는 방향으로 아이스 버스터를 발사한다.\n프리렌펫세른 - 상대방을 얼음속에 가둔다.\n매직카펫 - 10초간 매직카펫 탑승\n프리지드 대거 - 자신을 기준으로 50칸 내에 있는 엔티티의 체력을 5 감소시킴+프리지드 대거 발사.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -604,19 +604,19 @@ ESP.skillInfo("Reinforce Zwei", " 아이스 버스터 - 바라보는 방향으�
 layout30.addView(irandom);
 layout30.addView(izwei);
 
-var layout31 = new android.widget.LinearLayout(ctx);
-layout31.setGravity(android.view.Gravity.CENTER);
+var layout31 = new LinearLayout(ctx);
+layout31.setGravity(Gravity.CENTER);
 layout31.setOrientation(0);
-var ideco = new android.widget.Button(ctx);
-var ihsum = new android.widget.Button(ctx);
+var ideco = new Button(ctx);
+var ihsum = new Button(ctx);
 ideco.setText("  The Decorater  ");
 ihsum.setText("  Hyper Summoner  ");
-ideco.setOnClickListener(new android.view.View.OnClickListener(){
+ideco.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Decorater", "트리즈 - 작은 나무들을 소환한다.\n칼라풀 월 - 화려한(?) 벽을 소환한다.\n미들 핑거즈 - 자신의 주변에 凸모양의 구조물을 설치, 터트린다.\n다크 데스 데코레이션 - 옵시디언 벽을 소환, 그 안에서 TNT로 구조물을 만든다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ihsum.setOnClickListener(new android.view.View.OnClickListener(){
+ihsum.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hyper Summoner", "스파이더즈 - 거미들을 소환한다.\n오버 언데드 - 오버월드의 언데드 몹들을 소환한다.\n네더 언데드 - 네더월드의 언데드 몹들을 소환한다.\n버스터즈 - 폭탄을 싣고있는 거미들과 크리퍼들을 소환한다.\n패시브 - The Summoner와 동일");
 }
@@ -624,19 +624,19 @@ ESP.skillInfo("Hyper Summoner", "스파이더즈 - 거미들을 소환한다.\n�
 layout31.addView(ideco);
 layout31.addView(ihsum);
 
-var layout32 = new android.widget.LinearLayout(ctx);
-layout32.setGravity(android.view.Gravity.CENTER);
+var layout32 = new LinearLayout(ctx);
+layout32.setGravity(Gravity.CENTER);
 layout32.setOrientation(0);
-var iclimate = new android.widget.Button(ctx);
-var iraid = new android.widget.Button(ctx);
+var iclimate = new Button(ctx);
+var iraid = new Button(ctx);
 iclimate.setText("  Climate Changer  ");
 iraid.setText("  Remote Raider  ");
-iclimate.setOnClickListener(new android.view.View.OnClickListener(){
+iclimate.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Climate Changer", "플랜츠 - 작은 나무와 식물들을 소환한다.\n데저트 - 작은 사막을 소환한다.\n미니 네더 - 작은 네더월드을 소환한다.\n이테널 코핀 - 광역동결마법. 자신의 주위를 얼린다+해당 범위 내에 있는 몹들의 체력 -15.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-iraid.setOnClickListener(new android.view.View.OnClickListener(){
+iraid.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Remote Raider", "버스트 - 자신의 10칸정도 앞이 터진다.\n리모트 딜리트 - 타겟의 체력을 5 깍는다.\n리모트 버닝 바인드 - 타겟에게 10초간 불을 붙이고, 거미줄을 설치한다.\n서먼 타겟 - 타겟의 위치를 터트린 뒤, 내 앞으로 소환한다. 스킬 사용 후, 30초가 지나면 타겟의 체력이 10 감소한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지\n\n\"타겟\"은 때리면 등록(?)됩니다.");
 }
@@ -644,19 +644,19 @@ ESP.skillInfo("Remote Raider", "버스트 - 자신의 10칸정도 앞이 터진�
 layout32.addView(iclimate);
 layout32.addView(iraid);
 
-var layout33 = new android.widget.LinearLayout(ctx);
-layout33.setGravity(android.view.Gravity.CENTER);
+var layout33 = new LinearLayout(ctx);
+layout33.setGravity(Gravity.CENTER);
 layout33.setOrientation(0);
-var iwind = new android.widget.Button(ctx);
-var ienergy = new android.widget.Button(ctx);
+var iwind = new Button(ctx);
+var ienergy = new Button(ctx);
 iwind.setText("  Wind Operater  ");
 ienergy.setText("  Energy Transfer  ");
-iwind.setOnClickListener(new android.view.View.OnClickListener(){
+iwind.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Wind Operater", "윈드 버스트 - 바라보는 방향으로 세번 터진다.\n애어 베리어 - 공기의 장벽(유리벽)을 소환한다.\n스로우 - 상대방을 위로 던진다(+체력-3).\n소닉 웨이브 - 주위에 있는 적들의 체력을 지속적으로 감소시킨다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ienergy.setOnClickListener(new android.view.View.OnClickListener(){
+ienergy.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Energy Transfer", "버스트 - 터진다.\n히트 업 - 주위의 온도를 높여, 상대방의 몸에 불을 붙인다.\n선더볼트 – 자신의 주변에 약한 낙뢰를 떨어트린다\n리모트 에너지 제너래이션 - 주위에 있는 적들의 위치를 폭파시킨다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -664,19 +664,19 @@ ESP.skillInfo("Energy Transfer", "버스트 - 터진다.\n히트 업 - 주위의
 layout33.addView(iwind);
 layout33.addView(ienergy);
 
-var layout34 = new android.widget.LinearLayout(ctx);
-layout34.setGravity(android.view.Gravity.CENTER);
+var layout34 = new LinearLayout(ctx);
+layout34.setGravity(Gravity.CENTER);
 layout34.setOrientation(0);
-var igeno = new android.widget.Button(ctx);
-var iserver = new android.widget.Button(ctx);
+var igeno = new Button(ctx);
+var iserver = new Button(ctx);
 igeno.setText("  The Genocider  ");
 iserver.setText("  Server Dominator  ");
-igeno.setOnClickListener(new android.view.View.OnClickListener(){
+igeno.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Genocider", "범 라이드 - 상대방을 폭탄위에 올려놓는다\n버스트 프리즌 - 폭탄이 들어가있는 감옥 내부에 가둔다.\n어라운드 어택 - 자신의 주위에 있는 적들의 체력-5 + 5초간 불붙임\n더 제노사이드 - 자신의 주위에 있는 적들의 위에 활성화된 TNT를 소환한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-iserver.setOnClickListener(new android.view.View.OnClickListener(){
+iserver.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Server Dominator", "무브 - 자신이 아닌 플레이어의 위치 중 하나로 이동한다.\n서먼 - 자신이 아닌 플레이어 중 한명을 소환한다.\n디크리즈 - 자신의 주변에 있는 적들의 체력을 깎는다.\n밴 - 맞은 상대방을 30초간 밴시킨다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -684,19 +684,19 @@ ESP.skillInfo("Server Dominator", "무브 - 자신이 아닌 플레이어의 위
 layout34.addView(igeno);
 layout34.addView(iserver);
 
-var layout35 = new android.widget.LinearLayout(ctx);
-layout35.setGravity(android.view.Gravity.CENTER);
+var layout35 = new LinearLayout(ctx);
+layout35.setGravity(Gravity.CENTER);
 layout35.setOrientation(0);
-var iout = new android.widget.Button(ctx);
-var irgun = new android.widget.Button(ctx);
+var iout = new Button(ctx);
+var irgun = new Button(ctx);
 iout.setText("  The Outsider  ");
 irgun.setText("  I am Railgun  ");
-iout.setOnClickListener(new android.view.View.OnClickListener(){
+iout.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Outsider", "러쉬 - 앞으로 돌진한다. 자신이 있던 곳은 터진다.\n버스트 다운 - 터치한곳이 터진다+주변 엔티티 체력-7.\n어라운드 스로우 - 자신의 주위에 있는 적들의 체력을 3 내리고, 위로 던진다.\nTNT 센딩 - 자신의 주위에 있는 적들을 구속하고, 그의 위에 활성화된 TNT를 소환한다+체력-5.\n패시브 - 공격력 1 증가");
 }
 });
-irgun.setOnClickListener(new android.view.View.OnClickListener(){
+irgun.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("I am Railgun", "일렉트로 스로우 - 바리보는 방향으로 전류를 던진다.\n아이언 샌드 - 사철을 휘두른다.\n서라운드 라이트닝 - 자신의 주위에 전격을 날린다.\n온리 마이 레일건 - 바라보는 방향으로 레일건 발사.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -704,19 +704,19 @@ ESP.skillInfo("I am Railgun", "일렉트로 스로우 - 바리보는 방향으�
 layout35.addView(iout);
 layout35.addView(irgun);
 
-var layout36 = new android.widget.LinearLayout(ctx);
-layout36.setGravity(android.view.Gravity.CENTER);
+var layout36 = new LinearLayout(ctx);
+layout36.setGravity(Gravity.CENTER);
 layout36.setOrientation(0);
-var icopy = new android.widget.Button(ctx);
-var idragon = new android.widget.Button(ctx);
+var icopy = new Button(ctx);
+var idragon = new Button(ctx);
 icopy.setText("  Copying Eye  ");
 idragon.setText("  Dragon Trainer  ");
-icopy.setOnClickListener(new android.view.View.OnClickListener(){
+icopy.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Copying Eye", "파이어서먼 - 불을 소환한다.\n아마테라스 - 10초간 바라보는 곳에 불이 붙는다.\n카무이 - 상대방을 잠시동안 아공간속에 넣는다.\n스사노오 - 스사노오를 소환한다.\n패시브 - 불안붙음");
 }
 });
-idragon.setOnClickListener(new android.view.View.OnClickListener(){
+idragon.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Dragon Trainer", "브레스 - 바라보는 방향으로 불을 발사한다.\n아이스 브레스 - 바라보는 방향으로 얼음을 발사한다.\n파이어 브레스 - 바라보는 방향으로 불+폭발을 발사한다.\n다크 포그 - 자신의 위에 검은 안개를 생성, 낙뢰를 떨어뜨린다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -724,19 +724,19 @@ ESP.skillInfo("Dragon Trainer", "브레스 - 바라보는 방향으로 불을 �
 layout36.addView(icopy);
 layout36.addView(idragon);
 
-var layout37 = new android.widget.LinearLayout(ctx);
-layout37.setGravity(android.view.Gravity.CENTER);
+var layout37 = new LinearLayout(ctx);
+layout37.setGravity(Gravity.CENTER);
 layout37.setOrientation(0);
-var ihawk = new android.widget.Button(ctx);
-var isolid = new android.widget.Button(ctx);
+var ihawk = new Button(ctx);
+var isolid = new Button(ctx);
 ihawk.setText("  Hawk Eye  ");
 isolid.setText("  The Solidifier  ");
-ihawk.setOnClickListener(new android.view.View.OnClickListener(){
+ihawk.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hawk Eye", "위터 서먼 - 물을 소환한다.\n아니쿼터스 - 10초간 바라보는 곳에 물이 생성된다.\n소레스 - 터치한 방향으로 순간이동. 카무이를 당했을 시, 카무이 탈출.\n다로트 - 다로트를 소환한다.\n패시브 - 공격력, 방어력 1증가");
 }
 });
-isolid.setOnClickListener(new android.view.View.OnClickListener(){
+isolid.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Solidifier", "스톤 베리어 - 돌벽을 소환한다.\n프리즈 - 터치한 곳 주위의 물을 얼리고, 용암을 응고시킨다.\n스토닝 - 터치한 곳 주위를 석화시킨다.\n리모트 솔리디파이 - 자신 주위에 있는 자들에게 석화를 건다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
@@ -744,19 +744,19 @@ ESP.skillInfo("The Solidifier", "스톤 베리어 - 돌벽을 소환한다.\n프
 layout37.addView(ihawk);
 layout37.addView(isolid);
 
-var layout38 = new android.widget.LinearLayout(ctx);
-layout38.setGravity(android.view.Gravity.CENTER);
+var layout38 = new LinearLayout(ctx);
+layout38.setGravity(Gravity.CENTER);
 layout38.setOrientation(0);
-var igravity = new android.widget.Button(ctx);
-var ihass = new android.widget.Button(ctx);
+var igravity = new Button(ctx);
+var ihass = new Button(ctx);
 igravity.setText("  Gravity Twister  ");
 ihass.setText("  Hyper Assassin  ");
-igravity.setOnClickListener(new android.view.View.OnClickListener(){
+igravity.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Gravity Twister", "블록 업 - 터치한 블록을 들어올린다.\n업사이드 - 상대방을 위로 들어올린다.\n어라운드 스로우 - 자신의 주위에 있는 적들을 위로 순간이동시킨다.+폭발\n그래비티 워프 - 주위의 중력을 왜곡시킨다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ihass.setOnClickListener(new android.view.View.OnClickListener(){
+ihass.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hyper Assassin", "어썰터 - 터치항 방향으로 빠르게 이동하며 터치한 곳이 폭발한다.\n아크 텔레포트 어택 - 한번 터치하면, 그 장소가 기억되고, 한번 더 터치하면 그 장소로 순간이동하며 주위의 적들의 체력을 감소시킨다.\n리모트 버스트- 바지로 상대방을 때리면 그 상대방이 기억되고, 땅을 터치하면 그 상대방의 위치가 터진다.\n하이퍼 어쌔시네이션 - 주위의 적들의 체력을 두번 10감소시킨다(30초 뒤 5 추가 감소).\n패시브 - 공격력 1 증가");
 }
@@ -764,19 +764,19 @@ ESP.skillInfo("Hyper Assassin", "어썰터 - 터치항 방향으로 빠르게 �
 layout38.addView(igravity);
 layout38.addView(ihass);
 
-var layout39 = new android.widget.LinearLayout(ctx);
-layout39.setGravity(android.view.Gravity.CENTER);
+var layout39 = new LinearLayout(ctx);
+layout39.setGravity(Gravity.CENTER);
 layout39.setOrientation(0);
-var isikill = new android.widget.Button(ctx);
-var iblack = new android.widget.Button(ctx);
+var isikill = new Button(ctx);
+var iblack = new Button(ctx);
 isikill.setText("  Silent Killer  ");
 iblack.setText("  Black Slayer  ");
-isikill.setOnClickListener(new android.view.View.OnClickListener(){
+isikill.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Silent Killer", "텔레포트 - 터치한 방향으로 순간이동.\n더블 스텝 - 상대방을 두번 때린다.\n사이드 버스트 - 자신의 옆을 터트린다.\n서라운드 어썰트 - 주위의 적들의 체력을 15 깎는다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-iblack.setOnClickListener(new android.view.View.OnClickListener(){
+iblack.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Black Slayer", "다크 스윙 - 어둠을 휘두른다.\n다크 버스터 - 앞으로 어둠을 발사한다.\n사이드 다크 버스터 - 옆으로 어둠을 발사한다.\n다크니스 릴리징 - 주위로 어둠을 방출한다.\n패시브 - 밤에 공격력 1 증가");
 }
@@ -784,19 +784,19 @@ ESP.skillInfo("Black Slayer", "다크 스윙 - 어둠을 휘두른다.\n다크 �
 layout39.addView(isikill);
 layout39.addView(iblack);
 
-var layout40 = new android.widget.LinearLayout(ctx);
-layout40.setGravity(android.view.Gravity.CENTER);
+var layout40 = new LinearLayout(ctx);
+layout40.setGravity(Gravity.CENTER);
 layout40.setOrientation(0);
-var islash = new android.widget.Button(ctx);
-var inight = new android.widget.Button(ctx);
+var islash = new Button(ctx);
+var inight = new Button(ctx);
 islash.setText("  The Slasher  ");
 inight.setText("  Night Worker  ");
-islash.setOnClickListener(new android.view.View.OnClickListener(){
+islash.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Slasher", "텔레포트 - 터치한 방향으로 순간이동.\n트리플 슬레시 - 상대방을 세번 때린다.\n슬레시 버스트 - 상대방을 터트린다.\n서라운드 슬래쉬 - 주위를 터트린다+체력 10 감소.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-inight.setOnClickListener(new android.view.View.OnClickListener(){
+inight.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Night Worker", "어라운드 다운 - 주위 적들의 체력을 내린다.\n다크 데쉬 버스터 - 앞으로 돌진한다.\n앱솔브 - 상대의 체력을 5 감소시키고, 자신의 체력을 2 회복한다.\n더 나이트 - 밤으로 바꾼다.+30초간 공격력 2 증가\n패시브 - 밤에 공격력 1 증가");
 }
@@ -804,19 +804,19 @@ ESP.skillInfo("Night Worker", "어라운드 다운 - 주위 적들의 체력을 
 layout40.addView(islash);
 layout40.addView(inight);
 
-var layout41 = new android.widget.LinearLayout(ctx);
-layout41.setGravity(android.view.Gravity.CENTER);
+var layout41 = new LinearLayout(ctx);
+layout41.setGravity(Gravity.CENTER);
 layout41.setOrientation(0);
-var igem = new android.widget.Button(ctx);
-var idra = new android.widget.Button(ctx);
+var igem = new Button(ctx);
+var idra = new Button(ctx);
 igem.setText("  Light Gemstone  ");
 idra.setText("  The Dracula  ");
-igem.setOnClickListener(new android.view.View.OnClickListener(){
+igem.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Light  Gemstone", "쿠어 - 체력 5 회복.\n사이드 라이트 버스터 - 앙쪽으로 라이트 버스터를 날린다.\n라이트 바인드 - 빛으로 상대방을 구속한다.\n더 데이 - 낮으로 바꾼다.+적들의 체력-17.\n패시브 - 낮에 공격력 1 증가");
 }
 });
-idra.setOnClickListener(new android.view.View.OnClickListener(){
+idra.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Dracula", "앱솔브 - 상대의 체력 7 흡수.\n어라운드 앱솔브 - 주위의 적들의 체력 7 감소, 본인은 7 회복.\n텔레포트 - 터치한 방향으로 순간이동+체력 1 회복\n하이퍼 나이트메어 - 낮으로 바꾼다.+적들의 체력-17. 특정 대상 터치 시 주위 적들의 체력 10 감소. 특정 대상의 체력 순차적으로 감소.\n패시브 - The Vampire와 동일");
 }
@@ -824,19 +824,19 @@ ESP.skillInfo("The Dracula", "앱솔브 - 상대의 체력 7 흡수.\n어라운�
 layout41.addView(igem);
 layout41.addView(idra);
 
-var layout42 = new android.widget.LinearLayout(ctx);
-layout42.setGravity(android.view.Gravity.CENTER);
+var layout42 = new LinearLayout(ctx);
+layout42.setGravity(Gravity.CENTER);
 layout42.setOrientation(0);
-var imush = new android.widget.Button(ctx);
-var iender = new android.widget.Button(ctx);
+var imush = new Button(ctx);
+var iender = new Button(ctx);
 imush.setText("  Mushroom Grower  ");
 iender.setText("  Ender Girl  ");
-imush.setOnClickListener(new android.view.View.OnClickListener(){
+imush.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Mushroom Grower", "퀴드 머쉬룸 - 버섯 4개 소환\n브라운 머쉬룸 - 갈색 버섯 소환.\n레드 머쉬룸 - 빨간색 버섯 소환.\n머쉬룸 아일랜드 - 버섯섬을 소환한다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-iender.setOnClickListener(new android.view.View.OnClickListener(){
+iender.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Ender Girl", "엔더 베리어 - 엔더스톤 벽을 소환한다.\n엔더 브릭스 프리즌 - 석제 블록안에 상대방을 가둔다.\n엔더멘 - 엔더맨들을 소환한다.\n엔더 서먼 - 엔더월드의 일부를 소환한다.\n패시브 - 엔더스톤 위에 있을 시 체력이 25 이하라면 5초마다 체력 2 회복");
 }
@@ -844,19 +844,19 @@ ESP.skillInfo("Ender Girl", "엔더 베리어 - 엔더스톤 벽을 소환한다
 layout42.addView(imush);
 layout42.addView(iender);
 
-var layout43 = new android.widget.LinearLayout(ctx);
-layout43.setGravity(android.view.Gravity.CENTER);
+var layout43 = new LinearLayout(ctx);
+layout43.setGravity(Gravity.CENTER);
 layout43.setOrientation(0);
-var itaiga = new android.widget.Button(ctx);
-var iruin = new android.widget.Button(ctx);
+var itaiga = new Button(ctx);
+var iruin = new Button(ctx);
 itaiga.setText("  Taiga Appearer  ");
 iruin.setText("  The Ruiner  ");
-itaiga.setOnClickListener(new android.view.View.OnClickListener(){
+itaiga.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Taiga Appearer", "모노트리 - 전나무를 한 그루 소환한다.\n타이가 트리 - 큰 전나무를 한 그루 소환한다.\n스몰 타이가 - 메가 타이가의 일부를 소환한다.\n메가 타이가 - 메가 타이가를 소환한다.\n패시브 - Jungle Former와 동일");
 }
 });
-iruin.setOnClickListener(new android.view.View.OnClickListener(){
+iruin.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Ruiner", "버스트- 터진다.\n버스트 샷 - 바라보는 방향으로 터진다.\n와이드 익스플로션 - 자신의 주변을 폭파시킨다.\n더 루이닝 - 폭탄으로 주변을 파괴한다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
@@ -864,19 +864,19 @@ ESP.skillInfo("The Ruiner", "버스트- 터진다.\n버스트 샷 - 바라보는
 layout43.addView(itaiga);
 layout43.addView(iruin);
 
-var layout44 = new android.widget.LinearLayout(ctx);
-layout44.setGravity(android.view.Gravity.CENTER);
+var layout44 = new LinearLayout(ctx);
+layout44.setGravity(Gravity.CENTER);
 layout44.setOrientation(0);
-var iswamp = new android.widget.Button(ctx);
-var iasum = new android.widget.Button(ctx);
+var iswamp = new Button(ctx);
+var iasum = new Button(ctx);
 iswamp.setText("  Swamp Generater  ");
 iasum.setText("  Arch Summoner  ");
-iswamp.setOnClickListener(new android.view.View.OnClickListener(){
+iswamp.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Swamp Generater", "타이니 스웜프 - 작은 연못 소환.\n모노트리 - 나무 한 그루 소환.\n슬라임즈 - 슬라임들 소환.\n데드 스웜프 - 죽음의 늪을 소환한다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
 });
-iasum.setOnClickListener(new android.view.View.OnClickListener(){
+iasum.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Arch Summoner", "언데드 서먼 - 좀비들과 스켈레톤들을 소환한다.\n엔더네더 몹 서먼 - 엔더맨들과 좀비 피그맨들을 소환한다.\n타이니 서먼 - 슬라임들과 좀벌레들을 소환한다.\n하이퍼 서먼 - 많은 몹들을 소환한다.\n패시브 - The Summoner와 동일");
 }
@@ -884,19 +884,19 @@ ESP.skillInfo("Arch Summoner", "언데드 서먼 - 좀비들과 스켈레톤들�
 layout44.addView(iswamp);
 layout44.addView(iasum);
 
-var layout45 = new android.widget.LinearLayout(ctx);
-layout45.setGravity(android.view.Gravity.CENTER);
+var layout45 = new LinearLayout(ctx);
+layout45.setGravity(Gravity.CENTER);
 layout45.setOrientation(0);
-var iamage = new android.widget.Button(ctx);
-var ipuella = new android.widget.Button(ctx);
+var iamage = new Button(ctx);
+var ipuella = new Button(ctx);
 iamage.setText("  Arch Mage  ");
 ipuella.setText("  Puella Magica  ");
-iamage.setOnClickListener(new android.view.View.OnClickListener(){
+iamage.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Arch Mage", "텔레포트 - 터치한 방향으로 순간이동\n아이스 파이어 - 바라보는 방향으로 불&얼음 발사.\n쿼드 범 - TNT 4개 소환.\n그라운드 다운 - 땅을 아래로 깎는다.\n패시브 - The Mage와 동일");
 }
 });
-ipuella.setOnClickListener(new android.view.View.OnClickListener(){
+ipuella.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Puella Magica", "텔레포트 - 터치한 방향으로 순간이동.\n힐 - 체력 7 회복.\n매직 카펫 - 10초 간 매직 카펫 탑승.\n메지컬 하트 - 분홍색 하트를 소환한다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
@@ -904,19 +904,19 @@ ESP.skillInfo("Puella Magica", "텔레포트 - 터치한 방향으로 순간이�
 layout45.addView(iamage);
 layout45.addView(ipuella);
 
-var layout46 = new android.widget.LinearLayout(ctx);
-layout46.setGravity(android.view.Gravity.CENTER);
+var layout46 = new LinearLayout(ctx);
+layout46.setGravity(Gravity.CENTER);
 layout46.setOrientation(0);
-var ihbuild = new android.widget.Button(ctx);
-var iscalar = new android.widget.Button(ctx);
+var ihbuild = new Button(ctx);
+var iscalar = new Button(ctx);
 ihbuild.setText("  Hyper Builder  ");
 iscalar.setText("  Scalar Increaser  ");
-ihbuild.setOnClickListener(new android.view.View.OnClickListener(){
+ihbuild.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Hyper Builder", "스트릿 라이트 - 가로등 소환.\n스톤 하우스 - 돌 집 소환.\n로드 - 바라보는 방향으로 도로 소환.\n더 스트럭터 - 고층(?) 빌딩 소환.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
 });
-iscalar.setOnClickListener(new android.view.View.OnClickListener(){
+iscalar.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Scalar Increaser", "버스트 - 터치한 곳에 에너지를 발생시켜서 터트린다.\n히트 개더 - 자신 주변에 있는 적들의 주위의 열에너지를 적들에게 보낸다.\n파이어 라인 - 자신의 뒤에 불이 지속적으로 생긴다.\n히트 익스플로션 - 주위의 적들 주변의 열에너지를 조작한다.\n패시브 - 공격력 1 증가");
 }
@@ -924,19 +924,19 @@ ESP.skillInfo("Scalar Increaser", "버스트 - 터치한 곳에 에너지를 발
 layout46.addView(ihbuild);
 layout46.addView(iscalar);
 
-var layout47 = new android.widget.LinearLayout(ctx);
-layout47.setGravity(android.view.Gravity.CENTER);
+var layout47 = new LinearLayout(ctx);
+layout47.setGravity(Gravity.CENTER);
 layout47.setOrientation(0);
-var ivector = new android.widget.Button(ctx);
-var itensor = new android.widget.Button(ctx);
+var ivector = new Button(ctx);
+var itensor = new Button(ctx);
 ivector.setText("  Vector Reflacter  ");
 itensor.setText("  Tensor Verrer  ");
-ivector.setOnClickListener(new android.view.View.OnClickListener(){
+ivector.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Vector Reflacter", "그라운드 스메쉬 - 바라보는 방향으로 세번 터진다.\n어라운드 스로우 - 주위의 적들을 위로 던진다.\n그라운드 쇼크 - 바라보는 방향으로 연속적으로 땅을 든다(?).\n쇼크 - 자신의 주변으로 충격파를 날린다.\n패시브 - Force Shifter와 동일");
 }
 });
-itensor.setOnClickListener(new android.view.View.OnClickListener(){
+itensor.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Tensor Veerer", "텔레포트 - 3초동안 터치한 곳으로 텔레포트\n라운드 버스트 - 자신의 주위를 순차적으로 터트린다.\n히트 - 피격당한 적 체력-12, 주변의 적 체력 -7.\n텐서 디스토션 - 주변의 텐서를 제어한다.\n패시브 - Force Shifter와 동일");
 }
@@ -944,19 +944,19 @@ ESP.skillInfo("Tensor Veerer", "텔레포트 - 3초동안 터치한 곳으로 �
 layout47.addView(ivector);
 layout47.addView(itensor);
 
-var layout48 = new android.widget.LinearLayout(ctx);
-layout48.setGravity(android.view.Gravity.CENTER);
+var layout48 = new LinearLayout(ctx);
+layout48.setGravity(Gravity.CENTER);
 layout48.setOrientation(0);
-var iameca = new android.widget.Button(ctx);
-var iseal = new android.widget.Button(ctx);
+var iameca = new Button(ctx);
+var iseal = new Button(ctx);
 iameca.setText("  Arch Mechanic  ");
 iseal.setText("  The Sealer  ");
-iameca.setOnClickListener(new android.view.View.OnClickListener(){
+iameca.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Arch Mechanic", "캐논 샷 - 앞으로 폭발을 발사한다.\n범 버스트 - 폭탄들 소환.\n플라잉 머신 - 10초간 비행 기계 탑승.\n리모트 버스트 어택 - 주위의 적들 위에 폭파 기계를 소환한다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
 });
-iseal.setOnClickListener(new android.view.View.OnClickListener(){
+iseal.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Sealer", "글래스 바인드 - 유리로 상대방을 구속한다.\n소일 프리즌 - 흙감옥 소환.\n버스트 프리즌 - 돌 감옥 소환. 한번 더 터치시 폭파.\n씰링 - 상대방을 30초간 봉인한다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
@@ -964,19 +964,19 @@ ESP.skillInfo("The Sealer", "글래스 바인드 - 유리로 상대방을 구속
 layout48.addView(iameca);
 layout48.addView(iseal);
 
-var layout49 = new android.widget.LinearLayout(ctx);
-layout49.setGravity(android.view.Gravity.CENTER);
+var layout49 = new LinearLayout(ctx);
+layout49.setGravity(Gravity.CENTER);
 layout49.setOrientation(0);
-var iangel = new android.widget.Button(ctx);
-var iwhite = new android.widget.Button(ctx);
+var iangel = new Button(ctx);
+var iwhite = new Button(ctx);
 iangel.setText("  The Archangel  ");
 iwhite.setText("  White Eye  ");
-iangel.setOnClickListener(new android.view.View.OnClickListener(){
+iangel.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("The Archangel", "라이트 버스터 - 바라보는 방향으로 빛을 발사한다.\n매직 카펫 - 10초간 매직 카펫 탑승.\n사이드 라이트 버스터 - 양쪽으로 라이트 버스터를 날린다.\n제네시스 - 하늘로부터 빛기둥을 떨어뜨린다.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
 });
-iwhite.setOnClickListener(new android.view.View.OnClickListener(){
+iwhite.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("White Eye", "텔레포트 - 터치한 방향으로 순간이동.\n버스트즈 - 10초간 바라보는 곳 폭발.\n트리플 히트 - 적를 3번 때린다.\n휴먼 에너지 - 인간 형태로 기를 모은다.\n패시브 - 공격력 1 증가");
 }
@@ -984,19 +984,19 @@ ESP.skillInfo("White Eye", "텔레포트 - 터치한 방향으로 순간이동.\
 layout49.addView(iangel);
 layout49.addView(iwhite);
 
-var layout50 = new android.widget.LinearLayout(ctx);
-layout50.setGravity(android.view.Gravity.CENTER);
+var layout50 = new LinearLayout(ctx);
+layout50.setGravity(Gravity.CENTER);
 layout50.setOrientation(0);
-var imental = new android.widget.Button(ctx);
-var iworld = new android.widget.Button(ctx);
+var imental = new Button(ctx);
+var iworld = new Button(ctx);
 imental.setText("  Mental Out  ");
 iworld.setText("  World Edtior  ");
-imental.setOnClickListener(new android.view.View.OnClickListener(){
+imental.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Mental Out", "멘탈 바인드 - 상대방을 5초간 움직이지 못하게 한다.\n포스드 점프 - 상대방을 위로 보낸다(정신적으로 공격해서 점프하게 만드는 것).\n히트 - 상대방을 때린다.\n멘탈 아웃 - 상대방의 정신을 혼미하게 한다.+범위공격.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
 });
-iworld.setOnClickListener(new android.view.View.OnClickListener(){
+iworld.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("World Edtior", "텔레포트 - 터치한 방향으로 순간이동\n셋타일 - 10초간 블록을 설치한다.\n워 서먼 - 벽을 소환한다. 한 번 더 터치하면 폭탄이 터진다.\n월드에딧 : /set - 채우기. 신발로 지점 1, 2를 터치하고, 원하는 블록을 터치하면 됨. 배드락 제외, 거리제한 50칸.\n패시브 - 타격 시 50% 확률로 1 추가 데미지");
 }
@@ -1004,23 +1004,23 @@ ESP.skillInfo("World Edtior", "텔레포트 - 터치한 방향으로 순간이�
 layout50.addView(imental);
 layout50.addView(iworld);
 
-var text = new android.widget.TextView(ctx);
+var text = new TextView(ctx);
 text.setText(null);
 text.setTextSize(10);
 
-var layout0 = new android.widget.LinearLayout(ctx);
-layout0.setGravity(android.view.Gravity.CENTER);
+var layout0 = new LinearLayout(ctx);
+layout0.setGravity(Gravity.CENTER);
 layout0.setOrientation(0);
-var idtj = new android.widget.Button(ctx);
-var ife = new android.widget.Button(ctx);
+var idtj = new Button(ctx);
+var ife = new Button(ctx);
 idtj.setText("  Dark Tornado jr.  ");
 ife.setText("  Fire Expert  ");
-idtj.setOnClickListener(new android.view.View.OnClickListener(){
+idtj.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Dark Tornado jr.", "파이어 버스트 - 터치한 곳을 폭파시키고, 그 속에 불을 붙인다.\n아이스 버스터 - 바라보는 방향으로 아이스 버스터를 날린다.\n버닝 앱솔션 - 상댜의 에력을 흡수한 뒤, 불을 붙인다.\n엘리멘탈 어썰트 - 거의 모든 속성을 합친 듯 한 미친 공격(?)을 퍼붓는다.\n패시브 - 타격 시 50%확률로 1 추가 데미지");
 }
 });
-ife.setOnClickListener(new android.view.View.OnClickListener(){
+ife.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.skillInfo("Fire Expert", "버닝 베리어 - 불타는 벽을 소환한다.\n파이어 홀즈 - 바라보는 방향으로 불구멍(?)을 발사한다.\n버닝 바디 - 상대방의 몸에 불을 붙인다.\n멜팅 에어리아 - 자신의 주위에 불과 용암을 두른다.\n패시브 - 타격 시 상대에게 3초간 불이 붙음&자신은 불이 붙지 않음");
 }
@@ -1083,7 +1083,7 @@ layout.addView(layout0);
 
 var pad = dip2px(ctx, 5);
 layout.setPadding(pad, pad, pad, pad);
-var scroll = new android.widget.ScrollView(ctx);
+var scroll = new ScrollView(ctx);
 scroll.addView(layout);
 dialog.setTitle("스킬 정보");
 dialog.setView(scroll);
