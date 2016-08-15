@@ -6,37 +6,37 @@ else{
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-var menu = new android.widget.PopupWindow();
-var text = new android.widget.TextView(ctx);
+var menu = new PopupWindow();
+var text = new TextView(ctx);
 text.setText(names[type]+"\n");
 text.setTextSize(20);
-text.setGravity(android.view.Gravity.CENTER);
-var user = new android.widget.TextView(ctx);
+text.setGravity(Gravity.CENTER);
+var user = new TextView(ctx);
 user.setText("  User : "+Player.getName(eval(sb2Code[type])));
 user.setTextSize(18);
-var layout = new android.widget.LinearLayout(ctx);
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
 layout.addView(text);
 layout.addView(user);
 var btns = new Array();
 var menus = ["Send ESP", "Kill ESP", "Heal ESP"];
 for(var n in menus){
-btns[n] = new android.widget.Button(ctx);
+btns[n] = new Button(ctx);
 btns[n].setText(menus[n]);
 }
-btns[0].setOnClickListener(new android.view.View.OnClickListener(){
+btns[0].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.send(eval(sb2Code[type]));
 ESP.toast(names[n]+"(이)가 전송되었습니다");
 }
 });
-btns[1].setOnClickListener(new android.view.View.OnClickListener(){
+btns[1].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.kill(eval(sb2Code[type]));
 ESP.toast(names[n]+"(을)를 사살하였습니다");
 }
 });
-btns[2].setOnClickListener(new android.view.View.OnClickListener(){
+btns[2].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 ESP.heal(eval(sb2Code[type]));
 ESP.toast(names[n]+"(을)를 회복시켰습니다");
@@ -48,8 +48,8 @@ var exit = makeExitButton(menu);
 layout.addView(exit);
 var scroll = makeScroll(layout, menu);
 menu.setContentView(scroll);
-menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
-menu.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
+menu.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
