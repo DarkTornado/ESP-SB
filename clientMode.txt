@@ -17,7 +17,6 @@ var mclock = new Button(ctx);
 var madd = new Button(ctx);
 var minv = new Button(ctx);
 var mgo = new Button(ctx);
-var mqtt = new Button(ctx);
 var minfo = new Button(ctx);
 var mmulti = new Button(ctx);
 var msexit = new Button(ctx);
@@ -29,7 +28,6 @@ mclock.setText("Clock Moving");
 madd.setText("Add Item");
 minv.setText("Reset Inv.");
 mgo.setText("Go to...");
-mqtt.setText("QTT");
 minfo.setText("도움말");
 mmulti.setText("서버장 모드");
 msexit.setText("EXIT");
@@ -38,10 +36,10 @@ else mss.setChecked(false);
 mbgm.setChecked(bgmOnoff);
 mss.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
 onCheckedChanged : function(toggle, onoff){
-if(onoff==true){
+if(onoff){
 makeScreenShotButton();
 }
-else if(onoff==false){
+else{
 if(btnSS!=null){
 btnSS.dismiss();
 btnSS = null;
@@ -74,25 +72,6 @@ onClick: function(v){
 for(var n=0;n<36;n++)
 Player.clearInventorySlot(n);
 ESP.toast("인벤토리가 리셋되었습니다.");
-}
-});
-mqtt.setOnClickListener(new View.OnClickListener(){
-onClick: function(v){
-ModPE.leaveGame();
-ESP.toast("Quit to Title.");
-if(btn!=null){
-btn.dismiss();
-btn = null;
-}
-if(btnSS!=null){
-btnSS.dismiss();
-btnSS = null;
-}
-if(menuS!=null){
-menuS.dismiss();
-menuS = null;
-ESP.toast("ESP Manager off");
-}
 }
 });
 minfo.setOnClickListener(new View.OnClickListener(){
@@ -128,7 +107,6 @@ layout.addView(mclock);
 layout.addView(madd);
 layout.addView(minv);
 layout.addView(mgo);
-layout.addView(mqtt);
 layout.addView(minfo);
 layout.addView(mmulti);
 layout.addView(msexit);
