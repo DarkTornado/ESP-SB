@@ -5,15 +5,15 @@ else{
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-var menu = new android.widget.PopupWindow();
-var layout = new android.widget.LinearLayout(ctx);
+var menu = new PopupWindow();
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
 var text = makeESPName(ra.n[type]);
 var user = makeUserList(eval(espCode[type]));
 layout.addView(text);
 layout.addView(user);
 if(srs.indexOf(type)!=-1){
-var srb = new android.widget.ToggleButton(ctx);
+var srb = new ToggleButton(ctx);
 srb.setTextOn("sr. on");
 srb.setTextOff("sr. off");
 if(type==1) srb.setChecked(water2);
@@ -92,8 +92,8 @@ var exit = makeExitButton(menu);
 layout.addView(exit);
 var scroll = makeScroll(layout, menu);
 menu.setContentView(scroll);
-menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
-menu.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
+menu.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
