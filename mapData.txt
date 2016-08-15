@@ -1,20 +1,20 @@
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-menu4 = new android.widget.PopupWindow();
-var layout = new android.widget.LinearLayout(ctx);
+menu4 = new PopupWindow();
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
-var text = new android.widget.TextView(ctx);
+var text = new TextView(ctx);
 text.setText("맵 정보\n");
 text.setTextSize(23);
-text.setGravity(android.view.Gravity.CENTER);
+text.setGravity(Gravity.CENTER);
 if(mp3){
-var map = new android.widget.LinearLayout(ctx);
+var map = new LinearLayout(ctx);
 var map2 = Level.getWorldName().split("§b");
-var map3 = new android.widget.TextView(ctx);
-var map4 = new android.widget.TextView(ctx);
+var map3 = new TextView(ctx);
+var map4 = new TextView(ctx);
 map.setOrientation(0);
-map3.setTextColor(android.graphics.Color.CYAN);
+map3.setTextColor(Color.CYAN);
 map3.setText(map2[1]);
 map3.setTextSize(18);
 map4.setText(" 맵이름 : ");
@@ -23,11 +23,11 @@ map.addView(map4);
 map.addView(map3);
 }
 else{
-var map = new android.widget.TextView(ctx);
+var map = new TextView(ctx);
 map.setText(" 맵이름 : "+Level.getWorldName());
 map.setTextSize(18);
 }
-var admin = new android.widget.TextView(ctx);
+var admin = new TextView(ctx);
 admin.setText(" 서버장 : "+Player.getName(ad));
 admin.setTextSize(18);
 var playerNames = new Array();
@@ -36,17 +36,17 @@ if(ESP.isPlayer(e)&&e!=ad){
 playerNames.push(" "+Player.getName(e));
 }
 }
-var member = new android.widget.TextView(ctx);
+var member = new TextView(ctx);
 member.setText(" 서버원 :"+playerNames);
 member.setTextSize(18);
-var adh = new android.widget.TextView(ctx);
+var adh = new TextView(ctx);
 adh.setText(" 내 체력 : "+Entity.getHealth(ad));
 adh.setTextSize(18);
-var night = new android.widget.TextView(ctx);
+var night = new TextView(ctx);
 if(nightCheck()) adh.setText(" 낮/밤 : 밤");
 else adh.setText(" 낮/밤 : 낮");
 night.setTextSize(18);
-var mdplayers = new android.widget.ToggleButton(ctx);
+var mdplayers = new ToggleButton(ctx);
 mdplayers.setTextOn("플래이어 관리");
 mdplayers.setTextOff("플래이어 관리");
 if(btnPlayer==null) mdplayers.setChecked(false);
@@ -64,9 +64,9 @@ btnPlayer = null;
 }
 }
 }));
-var mgm = new android.widget.Button(ctx);
+var mgm = new Button(ctx);
 mgm.setText("게임모드 변경");
-mgm.setOnClickListener(new android.view.View.OnClickListener(){
+mgm.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 if(Level.getGameMode()==0){
 Level.setGameMode(1);
@@ -78,16 +78,16 @@ ESP.toast("서바이벌로 변경되었습니다.");
 }
 }
 });
-var mterr = new android.widget.Button(ctx);
+var mterr = new Button(ctx);
 mterr.setText("지형 수정");
-mterr.setOnClickListener(new android.view.View.OnClickListener(){
+mterr.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 worldEdit();
 }
 });
-var mdexit = new android.widget.Button(ctx);
+var mdexit = new Button(ctx);
 mdexit.setText("EXIT");
-mdexit.setOnClickListener(new android.view.View.OnClickListener(){
+mdexit.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 if(menu4!=null){
 menu4.dismiss();
@@ -102,7 +102,7 @@ layout.addView(member);
 layout.addView(night);
 layout.addView(adh);
 if(!mp2){
-var txt = new android.widget.TextView(ctx);
+var txt = new TextView(ctx);
 txt.setText("맵과 스크립트의 버전이 다릅니다.");
 txt.setTextSize(18);
 layout.addView(txt);
@@ -113,8 +113,8 @@ layout.addView(mterr);
 layout.addView(mdexit);
 var scroll = makeScroll(layout,menu4);
 menu4.setContentView(scroll);
-menu4.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
-menu4.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+menu4.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
+menu4.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
