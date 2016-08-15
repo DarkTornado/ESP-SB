@@ -1,11 +1,11 @@
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-btnPlayer = new android.widget.PopupWindow();
+btnPlayer = new PopupWindow();
 var layout = new android.widget.RelativeLayout(ctx);
-var button = new android.widget.Button(ctx);
+var button = new Button(ctx);
 button.setText("PM");
-button.setOnClickListener(new android.view.View.OnClickListener({
+button.setOnClickListener(new View.OnClickListener({
 onClick: function(v){
 if(menuP==null){
 try{
@@ -35,12 +35,12 @@ playerTarget = players[checkedId];
 layout.addView(radios);
 var pad = dip2px(ctx, 5);
 layout.setPadding(pad, pad, pad, pad);
-var scroll = android.widget.ScrollView(ctx);
+var scroll = ScrollView(ctx);
 scroll.addView(layout);
 dialog.setTitle("Player Manager");
 dialog.setView(scroll);
 dialog.setNegativeButton("취소", null);
-dialog.setPositiveButton("확인", new android.content.DialogInterface.OnClickListener({
+dialog.setPositiveButton("확인", new DialogInterface.OnClickListener({
 onClick: function(v){
 ESP.toast("Player was selected.");
 try{
@@ -59,7 +59,7 @@ var menus = ["Send Player", "Call Player", "Go to Player", "Set Health", "Give I
 for(var n in menus){
 button[n] = new Button(ctx);
 button[n].setText(menus[n]);
-button[n].setBackgroundColor(android.graphics.Color.argb(100, 100, 100, 100));
+button[n].setBackgroundColor(Color.argb(100, 100, 100, 100));
 }
 button[0].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
