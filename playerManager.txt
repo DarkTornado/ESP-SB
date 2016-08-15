@@ -86,7 +86,7 @@ playerHealthSet();
 });
 button[4].setOnClickListener(new android.view.View.OnClickListener() {
 onClick: function(v){
-giveItem();
+addItem(false);
 }
 });
 button[5].setOnClickListener(new android.view.View.OnClickListener() {
