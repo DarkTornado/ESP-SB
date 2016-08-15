@@ -1,7 +1,7 @@
-﻿if(menuS==null){
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
+if(menuS===null){
 menuS = new PopupWindow();
 var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
@@ -138,25 +138,16 @@ menuS.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.ar
 menuS.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 ESP.toast("ESP Manager on");
 }
+else{
+if(menuS!==null){
+menuS.dismiss();
+menuS = null;
+}
+ESP.toast("ESP Manager off");
+}
+}
 catch(e){
 clientMessage(e+", "+e.lineNumber);
 }
 }
 }));
-}
-else if(menuS!=null){
-ctx.runOnUiThread(new java.lang.Runnable({
-run: function(){
-try{
-if(menuS!=null){
-menuS.dismiss();
-menuS = null;
-}
-}
-catch(e){
-clientMessage("error : "+e);
-}
-}
-}));
-ESP.toast("ESP Manager off");
-}
