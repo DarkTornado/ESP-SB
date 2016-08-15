@@ -1,17 +1,17 @@
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-menu2 = new android.widget.PopupWindow();
-var text = new android.widget.TextView(ctx);
+menu2 = new PopupWindow();
+var text = new TextView(ctx);
 text.setText("E T C\n");
 text.setTextSize(23);
-text.setGravity(android.view.Gravity.CENTER);
-text.setOnClickListener(new android.view.View.OnClickListener(){
+text.setGravity(Gravity.CENTER);
+text.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 adminPass();
 }
 });
-var layout = new android.widget.LinearLayout(ctx);
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
 layout.addView(text);
 
@@ -34,7 +34,7 @@ auto = false;
 ESP.toast("Auto Recovery off");
 },
 auto);
-var mrm = new android.widget.ToggleButton(ctx);
+var mrm = new ToggleButton(ctx);
 var mal2 = makeButton("Remove Dropped Items", function(){
 for each(var e in Entity.getAll()){
 if(Entity.getEntityTypeId(e)==64)
@@ -49,7 +49,7 @@ Entity.remove(e);
 }
 ESP.toast("플레이어와 그림을 제외한 모든 엔티티가 삭제되었습니다.");
 });
-var mrd = new android.widget.ToggleButton(ctx);
+var mrd = new ToggleButton(ctx);
 var mdtl = makeToggleButton("D.T. jr. Limiter", "D.T. jr. Limiter",
 function(){
 dtl = true;
@@ -136,13 +136,13 @@ var minfo = makeButton("맵 정보", function(){mapData();});
 var minfo2 = makeButton("스킬 정보", function(){skillInfoSelect();});
 var minfo3 = makeButton("스크립트 정보", function(){scriptInfoDialog();});
 var mcmd = makeButton("명령어 목록", function(){openCmdList();});
-var mss = new android.widget.ToggleButton(ctx);
+var mss = new ToggleButton(ctx);
 var minfo4 = makeButton("0.4.3+", function(){
 ESP.skillInfo("초능력자 대전 0.4.3+", "0.4.3+는 구버전 초능력자 대전이라고 보면 됩니다. 각성블록들은 전용맵에 숨겨져 있습니다.\n능력 아이템들은 다음과 같으며, 각성블록을 터치하면 해당 능력의 능력 아이템들이 드롭됩니다.\n\nFire Master : 268(나무칼)-269(나무삽)-270(나무 곡괭이)-271(나무도끼)\nWater Controller : 272(돌칼)-273(돌삽)-274(돌곡괭이)-275(돌도끼)\nNature Guardian : 280(막대기)-281(그릇)-288(깃털)-289(화약)\nI am Creeper : 가죽세트(298~301)\nEarth Bander : 290(나무괭이)-291(돌괭이)-292(철괭이)-294(금괭이)\nThe Summoner : 금갑빠세트(314~317)\nThe Darkness : 레드스톤-눈덩이-가죽-점토벽돌(331, 332, 334, 336)\nThe Darkness : 석탄-다이아-철-금(263~266)\nThe Freezer : 부싯돌(318)-밀(296)-종이(339)-발광석 가루(348)\n");
 });
 var mqa = makeButton("Q & A", function(){qA();});
 var mai = makeButton("A.I.S.", function(){aiESP();});
-var mpm = new android.widget.ToggleButton(ctx);
+var mpm = new ToggleButton(ctx);
 var msc = makeToggleButton("Show Cool Time", "Show Cool Time", 
 function(){
 adsc = true;
@@ -414,8 +414,8 @@ var exit = makeExitButton(menu2);
 layout.addView(exit);
 var scroll = makeScroll(layout,menu2);
 menu2.setContentView(scroll);
-menu2.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.BLACK));
-menu2.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+menu2.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
+menu2.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
