@@ -15,8 +15,8 @@ if(ESP.isPlayer(e)){
 players.push(e);
 }
 }
-var dialog = new android.app.AlertDialog.Builder(ctx, holoDark);
-var layout = new android.widget.LinearLayout(ctx);
+var dialog = new AlertDialog.Builder(ctx, holoDark);
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
 var radios = new android.widget.RadioGroup(ctx);
 radios.setOrientation(1);
@@ -44,58 +44,58 @@ dialog.setPositiveButton("확인", new android.content.DialogInterface.OnClickLi
 onClick: function(v){
 ESP.toast("Player was selected.");
 try{
-menuP = new android.widget.PopupWindow();
-var layout = new android.widget.LinearLayout(ctx);
+menuP = new PopupWindow();
+var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
-var text = new android.widget.TextView(ctx);
+var text = new TextView(ctx);
 text.setText("Player Manager\n");
 text.setTextSize(23);
-text.setGravity(android.view.Gravity.CENTER);
-var txt = new android.widget.TextView(ctx);
+text.setGravity(Gravity.CENTER);
+var txt = new TextView(ctx);
 txt.setText("  target : "+Player.getName(playerTarget));
 txt.setTextSize(18);
 var button = new Array();
 var menus = ["Send Player", "Call Player", "Go to Player", "Set Health", "Give Item", "Give Support Items", "Kick Player"];
 for(var n in menus){
-button[n] = new android.widget.Button(ctx);
+button[n] = new Button(ctx);
 button[n].setText(menus[n]);
 button[n].setBackgroundColor(android.graphics.Color.argb(100, 100, 100, 100));
 }
-button[0].setOnClickListener(new android.view.View.OnClickListener() {
+button[0].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 ESP.send(playerTarget);
 ESP.toast(Player.getName(playerTarget)+" was sent");
 }
 });
-button[1].setOnClickListener(new android.view.View.OnClickListener() {
+button[1].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 teleport(playerTarget, Entity.getX(ad), Entity.getY(ad)+1, Entity.getZ(ad));
 ESP.toast(Player.getName(playerTarget)+" was called");
 }
 });
-button[2].setOnClickListener(new android.view.View.OnClickListener() {
+button[2].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 Entity.setPosition(ad, Entity.getX(playerTarget), Entity.getY(playerTarget)+1, Entity.getZ(playerTarget));
 ESP.toast("Teleported to "+Player.getName(playerTarget));
 }
 });
-button[3].setOnClickListener(new android.view.View.OnClickListener() {
+button[3].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 playerHealthSet();
 }
 });
-button[4].setOnClickListener(new android.view.View.OnClickListener() {
+button[4].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 addItem(false);
 }
 });
-button[5].setOnClickListener(new android.view.View.OnClickListener() {
+button[5].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 giveItems(playerTarget);
 ESP.toast("아이템이 지급되었습니다.");
 }
 });
-button[6].setOnClickListener(new android.view.View.OnClickListener() {
+button[6].setOnClickListener(new View.OnClickListener() {
 onClick: function(v){
 ESP.toast(Player.getName(playerTarget)+" was kicked");
 Entity.remove(playerTarget);
@@ -110,8 +110,8 @@ layout.addView(button[n]);
 layout.addView(exit);
 var scroll = makeScroll(layout,menuP);
 menuP.setContentView(scroll);
-menuP.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.argb(150, 0, 0, 0)));
-menuP.showAtLocation(ctx.getWindow().getDecorView(),android.view.Gravity.RIGHT|android.view.Gravity.TOP, 0, 0);
+menuP.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.argb(150, 0, 0, 0)));
+menuP.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
@@ -132,7 +132,7 @@ menuP = null;
 }
 }
 }));
-button.setOnLongClickListener(new android.view.View.OnLongClickListener({
+button.setOnLongClickListener(new View.OnLongClickListener({
 onLongClick: function(v){
 addItemInventory(302, 1, 0);
 addItemInventory(303, 1, 0);
@@ -154,20 +154,20 @@ return true;
 }
 }));
 if(emcolor==0){
-button.setBackgroundColor(android.graphics.Color.argb(70, 0, 0, 0));
+button.setBackgroundColor(Color.argb(70, 0, 0, 0));
 }
 else if(emcolor==1){
-button.setBackgroundColor(android.graphics.Color.argb(70, 255, 255, 255));
+button.setBackgroundColor(Color.argb(70, 255, 255, 255));
 }
 else if(emcolor==2){
-button.setBackgroundColor(android.graphics.Color.argb(0, 0, 0, 0));
+button.setBackgroundColor(Color.argb(0, 0, 0, 0));
 }
 layout.addView(button);
 btnPlayer.setContentView(layout);
 btnPlayer.setWidth(dip2px(ctx, 50));
 btnPlayer.setHeight(dip2px(ctx, 48));
-btnPlayer.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
-btnPlayer.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.LEFT | android.view.Gravity.TOP, dip2px(ctx, 108), 10);
+btnPlayer.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
+btnPlayer.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT | Gravity.TOP, dip2px(ctx, 108), 10);
 }
 catch(e){
 ESP.toast(e+", "+e.lineNumber);
