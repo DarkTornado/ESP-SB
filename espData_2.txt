@@ -1,4 +1,4 @@
-﻿if(eval(espCodes[type])==null){
+if(eval(espCodes[type])==null){
 SB.espOnoff(type, true);
 }
 else{
@@ -12,32 +12,6 @@ var text = makeESPName(ra.n[type]);
 var user = makeUserList(eval(espCode[type]));
 layout.addView(text);
 layout.addView(user);
-if(srs.indexOf(type)!=-1){
-var srb = new ToggleButton(ctx);
-srb.setTextOn("sr. on");
-srb.setTextOff("sr. off");
-if(type==1) srb.setChecked(water2);
-if(type==11) srb.setChecked(air2);
-if(type==15) srb.setChecked(bind2);
-if(type==19) srb.setChecked(heal2);
-srb.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
-onCheckedChanged : function(toggle, onoff){
-if(type==1) water2 = onoff;
-if(type==11) air2 = onoff;
-if(type==15) bind2 = onoff;
-if(type==19) heal2 = onoff;
-if(type==19){
-if(onoff) ESP.toast("Dark Healer on");
-else ESP.toast("Dark Healer off");
-}
-else{
-if(onoff) ESP.toast(ra.n[type]+" sr. on");
-else ESP.toast(ra.n[type]+" sr. off");
-}
-}
-}));
-layout.addView(srb);
-}
 var button = new Array();
 button[0] = makeButton("ESP on", function(){SB.espOnoff(type, true);});
 button[1] = makeButton("ESP off", function(){
