@@ -4,7 +4,7 @@ run: function(){
 try{
 btnTime = new PopupWindow();
 var layout = new android.widget.RelativeLayout(ctx);
-var button = makeButton(" day/night ", function(){dayNight();});
+var button = makeButton(" day/night ", "dayNight();");
 if(emcolor==1){
 button.setBackgroundColor(Color.argb(70, 255, 255, 255));
 }
@@ -44,7 +44,7 @@ ESP.toast("They are coming...");
 }
 layout.addView(text);
 
-var btns = new Array();
+var btns = [];
 var esps = ["Fire User", "Water Controller", "Nature Guardian", "I am Creeper", "Soil Master", "The Summoner", "The Luminous", "The Darkness", "The Freezer", "Desert Maker", "The Vampire", "Air Bander", "I am Elsa", "Mass Titan", "Thunder Breaker", "The Binder", "The Mechanic", "TNT Expert", "Trap Creater", "The Healer", "Nether Man", "Cloud Manager", "The Assassin", "Arrow Shooter", "The Mage", "The Defenser", "Poison Maven", "Ground Melter", "Hyper Freezer", "The Builder", "The Soldier", "The Assaulter", "The Burster", "The Warrior", "Ore Collecter", "The Rich", "The Teleporter", "Space Warpper", "Surround Attacker", "Force Shifter", "I am Reinforce", "Magnetism Distorter", "I am Steve", "I am Herobrine", "The Hermit", "Clay Gatherer", "I am Kirito", "Jungle Former", "I am Kanade", "Time Traveler", "The Sniper", "Zombie Employer", "The Necromancer", "I am Asuna", "Holy Knight", "Solar Paladin", "Lunar Wizard", "Hyper Assaulter", "Random Ability", "Reinforce Zwei", "The Decorater", "Hyper Summoner", "Climate Changer", "Remote Raider", "Wind Operater", "Energy Transfer", "The Genocider", "Server Dominator", "The Outsider", "I am Railgun", "Copying Eye", "Dragon Trainer", "Hawk Eye", "The Solidifier", "Gravity Twister", "Hyper Assassin", "Silent Killer", "Black Slayer", "The Slasher", "Night Worker", "Light Gemstone", "The Dracula", "Mushroom Grower", "Ender Girl", "Taiga Appearer", "The Ruiner", "Swamp Generater", "Arch Summoner", "Arch Mage", "Puella Magica", "Hyper Builder", "Scalar Increaser", "Vector Reflacter", "Tensor Veerer", "Arch Mechanic", "The Sealer", "The Archangel", "White Eye", "Mental Out", "World Editor"];
 for(var n in esps){
 btns[n] = new Button(ctx);
@@ -57,21 +57,21 @@ else SB.espManage(v.getId());
 }
 });
 }
-var mdtj = makeButton("Dark Tornado jr.", function(){SB.darkTornadoJr();});
+var mdtj = makeButton("Dark Tornado jr.", "SB.hyperManager(0);");
 mdtj.setOnLongClickListener(new View.OnLongClickListener(){
 onLongClick: function(v){
-SB.kaianPonKallopon();
+SB.hyperManager(3);
 return true;
 }
 });
-var mfe = makeButton("Fire Expert", function(){SB.fireExpert();});
+var mfe = makeButton("Fire Expert", "SB.fireExpert(1);");
 mfe.setOnLongClickListener(new View.OnLongClickListener(){
 onLongClick: function(v){
-SB.magmaController();
+SB.hyperManager(2);
 return true;
 }
 });
-var metc = makeButton("ETC", function(){otherESPManager();});
+var metc = makeButton("ETC", "otherESPManager();");
 var minfo = makeButton("도움말", function(){
 ESP.infoDialog("초능력자 대전", "\"초능력자 대전\"은 Dark Tornado가 만든 능력자 스크립트로서, 무단 공유는 허용하나, 무단 수정 및 자신이 만들었다고 주장하는 행위는 금지하며, 그냥 또는 학습을 위해 열어보는 것은 허용합니다.\n대략적인 사용법은 명령어 \"/help\"또는 \"/도움말\"을 치시면 나옵니다.\n오른쪽 아래의 \"EM\"버튼으로 on/off되는 이 버튼들(?)은 \"ESP Manager\"이며, 이곳에 있는 기능들은 대부분이 명령어로도 사용이 가능합니다. EM버튼은 위치 수정이 가능합니다.\nESP Manager의 기능들은 능력 비활성화(타 스크립트의 능력자의 경우 불가)와 능력자 전송, 사살, 회복 등이며, 서버관리자의 기능도 어느정도는 있습니다. 기능들은 버튼의  내용을 해석하시면 될 듯 싶습니다.\nESP Manager가 지원하는 능력자 스크립트는 초능력자 대전, 초능력자 대전+와 ESP-Else에 속한 능력자들입니다. ESP Manager는 마법사 대전의 Wizard Manager, ESP-Else의 능력 on/off 기능과 연동되어 있습니다.\n", "2014-2016 Dark Tornado\n(http:\/\/blog.naver.com\/dt3141592)");
 });
@@ -102,9 +102,9 @@ line.setText("--<H.E.>--");
 line.setTextSize(13);
 line.setGravity(Gravity.CENTER);
 layout.addView(line);
-var button = new Array();
+var button = [];
 for(var n in he.names){
-button[n] = new ColorButton(ctx);
+button[n] = new Button(ctx);
 button[n].setText(he.names[n]);
 button[n].setId(Number(n)+100);
 button[n].setOnClickListener(new View.OnClickListener(){
@@ -116,7 +116,7 @@ layout.addView(button[n]);
 }
 
 if(he.on2){
-var btns = new Array();
+var btns = [];
 for(var n in he.names2){
 btns[n] = new Button(ctx);
 btns[n].setText(he.names2[n]);
