@@ -45,10 +45,9 @@ ESP.toast("They are coming...");
 layout.addView(text);
 
 var btns = [];
-var esps = ["Fire User", "Water Controller", "Nature Guardian", "I am Creeper", "Soil Master", "The Summoner", "The Luminous", "The Darkness", "The Freezer", "Desert Maker", "The Vampire", "Air Bander", "I am Elsa", "Mass Titan", "Thunder Breaker", "The Binder", "The Mechanic", "TNT Expert", "Trap Creater", "The Healer", "Nether Man", "Cloud Manager", "The Assassin", "Arrow Shooter", "The Mage", "The Defenser", "Poison Maven", "Ground Melter", "Hyper Freezer", "The Builder", "The Soldier", "The Assaulter", "The Burster", "The Warrior", "Ore Collecter", "The Rich", "The Teleporter", "Space Warpper", "Surround Attacker", "Force Shifter", "I am Reinforce", "Magnetism Distorter", "I am Steve", "I am Herobrine", "The Hermit", "Clay Gatherer", "I am Kirito", "Jungle Former", "I am Kanade", "Time Traveler", "The Sniper", "Zombie Employer", "The Necromancer", "I am Asuna", "Holy Knight", "Solar Paladin", "Lunar Wizard", "Hyper Assaulter", "Random Ability", "Reinforce Zwei", "The Decorater", "Hyper Summoner", "Climate Changer", "Remote Raider", "Wind Operater", "Energy Transfer", "The Genocider", "Server Dominator", "The Outsider", "I am Railgun", "Copying Eye", "Dragon Trainer", "Hawk Eye", "The Solidifier", "Gravity Twister", "Hyper Assassin", "Silent Killer", "Black Slayer", "The Slasher", "Night Worker", "Light Gemstone", "The Dracula", "Mushroom Grower", "Ender Girl", "Taiga Appearer", "The Ruiner", "Swamp Generater", "Arch Summoner", "Arch Mage", "Puella Magica", "Hyper Builder", "Scalar Increaser", "Vector Reflacter", "Tensor Veerer", "Arch Mechanic", "The Sealer", "The Archangel", "White Eye", "Mental Out", "World Editor"];
-for(var n in esps){
+for(var n=0;n<100;n++){
 btns[n] = new Button(ctx);
-btns[n].setText(esps[n]);
+btns[n].setText(ra.n[n]);
 btns[n].setId(n);
 btns[n].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
