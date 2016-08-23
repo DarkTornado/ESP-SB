@@ -5,7 +5,8 @@ else{
 ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
-var menu = new PopupWindow();
+if(menuE!=null) menuE.dismiss();
+menuE = new PopupWindow();
 var layout = new LinearLayout(ctx);
 layout.setOrientation(1);
 var text = makeESPName(ra.n[type]);
@@ -62,12 +63,12 @@ selectUser(eval(espCode[type]), 4, ra.n[type]);
 });
 for(var n in button)
 layout.addView(button[n]);
-var exit = makeExitButton(menu);
+var exit = makeExitButton(menuE);
 layout.addView(exit);
-var scroll = makeScroll(layout, menu);
-menu.setContentView(scroll);
-menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
-menu.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
+var scroll = makeScroll(layout, menuE);
+menuE.setContentView(scroll);
+menuE.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
+menuE.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
 catch(e){
 clientMessage(e+", "+e.lineNumber);
