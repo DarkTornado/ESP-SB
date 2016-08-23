@@ -2,6 +2,9 @@ ctx.runOnUiThread(new java.lang.Runnable({
 run: function(){
 try{
 menu2 = new PopupWindow();
+var layout = new LinearLayout(ctx);
+layout.setOrientation(1);
+layout.addView(text);
 var text = new TextView(ctx);
 text.setText("E T C\n");
 text.setTextSize(23);
@@ -11,10 +14,6 @@ onClick: function(v){
 adminPass();
 }
 });
-var layout = new LinearLayout(ctx);
-layout.setOrientation(1);
-layout.addView(text);
-
 var mreset = makeButton("ESP Reset", function(){
 ESP.reset();
 ESP.toast("All ESP was reseted");
