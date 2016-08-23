@@ -62,16 +62,6 @@ dtla = 0;
 ESP.toast("Dark Tornado jr. Limiter Operate");
 },
 dtl);
-var mamr = makeToggleButton("Auto Manual Recovery", "Auto Manual Recovery",
-function(){
-fill = true;
-ESP.toast("Auto Filling&Deleting Mode on");
-},
-function(){
-fill = false;
-ESP.toast("Auto Filling&Deleting Mode off");
-},
-fill);
 var mpass = makeToggleButton("Passive Skill on", "Passive Skill off", 
 function(){
 passOnoff = true;
@@ -368,7 +358,6 @@ layout.addView(mrm);
 layout.addView(mrd);
 layout.addView(mss);
 layout.addView(mdtl);
-layout.addView(mamr);
 layout.addView(mpm);
 layout.addView(msc);
 layout.addView(mbgm);
