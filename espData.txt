@@ -203,6 +203,10 @@ if(menuS!=null){
 menuS.dismiss();
 menuS = null;
 }
+if(menuE!=null){
+menuE.dismiss();
+menuE = null;
+}
 }
 catch(e){
 clientMessage("error : "+e);
