@@ -243,7 +243,6 @@ function(){
 ep.tf = false;
 },
 ep.tf);
-var mparty = makeButton("Party", function(){Party.openManager();});
 mrm.setTextOn("Removing Mobs");
 mrm.setTextOff("Removing Mobs");
 mrd.setTextOn("RD on");
@@ -372,7 +371,6 @@ layout.addView(mreset);
 layout.addView(mal);
 layout.addView(mal2);
 layout.addView(mal3);
-layout.addView(mparty);
 layout.addView(madd);
 layout.addView(madd2);
 layout.addView(minv);
