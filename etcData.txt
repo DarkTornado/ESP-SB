@@ -350,6 +350,14 @@ function(){
 maxHealthFix = false;
 },
 maxHealthFix);
+var mgps = makeToggleButton("이벤트 리스너로 서버원 인식", "이벤트 리스너로 서버원 인식", 
+function(){
+getPlayers = true;
+},
+function(){
+getPlayers = false;
+},
+getPlayers);
 
 layout.addView(mar);
 layout.addView(mrm);
@@ -366,6 +374,7 @@ layout.addView(mae);
 layout.addView(msl);
 layout.addView(heall);
 layout.addView(mmhef);
+layout.addView(mgps);
 layout.addView(mes);
 layout.addView(mreset);
 layout.addView(mal);
