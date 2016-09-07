@@ -734,7 +734,6 @@ setTile(x-1, y+6, z, 18, 2);
 setTile(x-1, y+6, z+1, 18, 2);
 setTile(x-1, y+6, z+3, 18, 1);
 setTile(x-1, y+8, z+3, 18, 1);
-setTile(x-1, y+9, z+7, 1);
 setTile(x, y+1, z-1, 38);
 setTile(x, y+1, z+3, 17, 1);
 setTile(x, y+1, z+13, 38);
