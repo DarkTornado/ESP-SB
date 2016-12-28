@@ -1,0 +1,242 @@
+
+for(var yy=y+1;yy<y+27;yy++){
+for(var xx=x-4;xx<x+5;xx++){
+setTile(xx, yy, z+4, 155);
+setTile(xx, yy, z-4, 155);
+}
+for(var zz=z-3;zz<z+4;zz++){
+setTile(x+4, yy, zz, 155);
+setTile(x-4, yy, zz, 155);
+}
+}
+for(var xx=x-3;xx<x+4;xx++){
+for(var zz=z-3;zz<z+4;zz++){
+setTile(xx, y+1, zz, 155);
+setTile(xx, y+9, zz, 155);
+setTile(xx, y+13, zz, 155);
+setTile(xx, y+17, zz, 155);
+setTile(xx, y+21, zz, 155);
+setTile(xx, y+25, zz, 155);
+}
+for(var zz=z;zz<z+4;zz++)
+setTile(xx, y+5, zz, 155);
+}
+for(var yy=y+1;yy<y+26;yy++)
+setTile(x+2, yy, z+3, 155);
+for(var yy=y+2;yy<y+8;yy++){
+setTile(x-2, yy, z-4, 20);
+setTile(x-3, yy, z-4, 20);
+setTile(x+2, yy, z-4, 20);
+setTile(x+3, yy, z-4, 20);
+setTile(x-4, yy, z-1, 20);
+setTile(x-4, yy, z-2, 20);
+setTile(x-4, yy, z-3, 20);
+setTile(x+4, yy, z-1, 20);
+setTile(x+4, yy, z-2, 20);
+setTile(x+4, yy, z-3, 20);
+}
+for(var yy=y+5;yy<y+8;yy++){
+setTile(x+1, yy, z-4, 20);
+setTile(x, yy, z-4, 20);
+setTile(x-1, yy, z-4, 20);
+}
+for(var yy=y+22;yy<y+25;yy++){
+for(var xx=x-3;xx<x+4;xx++)
+setTile(xx, yy, z-4, 20);
+for(var zz=z-3;zz<z+4;zz++)
+setTile(x-4, yy, zz, 20);
+for(var xx=x-3;xx<x+2;xx++)
+setTile(xx, yy, z+4, 20);
+for(var zz=z-3;zz<z+2;zz++)
+setTile(x+4, yy, zz, 20);
+}
+setTile(x+3, y+5, z+3, 0);
+setTile(x+3, y+9, z+3, 0);
+setTile(x+3, y+13, z+3, 0);
+setTile(x+3, y+17, z+3, 0);
+setTile(x+3, y+21, z+3, 0);
+setTile(x+3, y+25, z+3, 0);
+for(var yy=y+9;yy<y+21;yy++){
+for(var xx=x-3;xx<x+4;xx++)
+setTile(xx, yy, z, 155);
+for(var zz=z-3;zz<z+1;zz++)
+setTile(x, yy, zz, 155);
+}
+setTile(x-4, y+3, z+1, 102);
+setTile(x-4, y+3, z+2, 102);
+setTile(x-4, y+7, z+1, 102);
+setTile(x-4, y+7, z+2, 102);
+setTile(x-4, y+11, z-2, 102);
+setTile(x-4, y+11, z+2, 102);
+setTile(x-4, y+15, z-2, 102);
+setTile(x-4, y+15, z+2, 102);
+setTile(x-4, y+19, z-2, 102);
+setTile(x-4, y+19, z+2, 102);
+setTile(x-4, y+27, z-4, 50, 5);
+setTile(x-4, y+27, z+4, 50, 5);
+setTile(x-3, y+2, z+1, 155);
+setTile(x-3, y+2, z+2, 54, 5);
+setTile(x-3, y+2, z+3, 54, 5);
+setTile(x-3, y+6, z, 102);
+setTile(x-3, y+10, z-3, 26, 10);
+setTile(x-3, y+10, z-2, 26, 2);
+setTile(x-3, y+14, z-3, 26, 10);
+setTile(x-3, y+14, z-2, 26, 2);
+setTile(x-3, y+18, z-3, 26, 10);
+setTile(x-3, y+18, z-2, 26, 2);
+setTile(x-3, y+22, z-2, 135, 1);
+setTile(x-3, y+22, z, 135, 1);
+setTile(x-3, y+22, z+2, 135, 1);
+setTile(x-2, y+2, z+1, 155);
+setTile(x-2, y+3, z+4, 102);
+setTile(x-2, y+6, z, 102);
+setTile(x-2, y+7, z+4, 102);
+setTile(x-2, y+10, z-3, 54, 3);
+setTile(x-2, y+11, z-4, 102);
+setTile(x-2, y+11, z+4, 102);
+setTile(x-2, y+14, z-3, 61, 3);
+setTile(x-2, y+15, z-4, 102);
+setTile(x-2, y+15, z+4, 102);
+setTile(x-2, y+18, z-3, 54, 3);
+setTile(x-2, y+19, z-4, 102);
+setTile(x-2, y+19, z+4, 102);
+setTile(x-2, y+22, z-2, 85, 2);
+setTile(x-2, y+22, z, 85, 2);
+setTile(x-2, y+22, z+2, 85, 2);
+setTile(x-2, y+23, z-2, 171);
+setTile(x-2, y+23, z, 171);
+setTile(x-2, y+23, z+2, 171);
+setTile(x-2, y+25, z-2, 89);
+setTile(x-2, y+25, z+2, 89);
+setTile(x-2, y+26, z-2, 89);
+setTile(x-2, y+26, z-1, 44, 6);
+setTile(x-2, y+26, z, 44, 6);
+setTile(x-2, y+26, z+1, 44, 6);
+setTile(x-2, y+26, z+2, 89);
+setTile(x-1, y+1, z-5, 156);
+setTile(x-1, y+2, z+1, 155);
+setTile(x-1, y+3, z-5, 50, 4);
+setTile(x-1, y+3, z+4, 102);
+setTile(x-1, y+6, z, 102);
+setTile(x-1, y+7, z+4, 102);
+setTile(x-1, y+10, z-3, 61, 3);
+setTile(x-1, y+10, z, 64, 1);
+setTile(x-1, y+11, z, 64, 8);
+setTile(x-1, y+11, z+4, 102);
+setTile(x-1, y+14, z-3, 54, 3);
+setTile(x-1, y+14, z, 64, 1);
+setTile(x-1, y+15, z, 64, 8);
+setTile(x-1, y+15, z+4, 102);
+setTile(x-1, y+18, z-3, 61, 3);
+setTile(x-1, y+18, z, 64, 1);
+setTile(x-1, y+19, z, 64, 8);
+setTile(x-1, y+19, z+4, 102);
+setTile(x-1, y+22, z-2, 135);
+setTile(x-1, y+22, z, 135);
+setTile(x-1, y+22, z+2, 135);
+setTile(x-1, y+26, z-2, 44, 6);
+setTile(x-1, y+26, z+2, 44, 6);
+setTile(x, y+1, z-5, 156, 2);
+setTile(x, y+2, z-4, 64, 3);
+setTile(x, y+2, z+1, 155);
+setTile(x, y+2, z+2, 155);
+setTile(x, y+3, z-4, 64, 8);
+setTile(x, y+3, z+3, 96);
+setTile(x, y+4, z-5, 68, 2);
+setTile(x, y+6, z, 102);
+setTile(x, y+10, z-2, 58);
+setTile(x, y+12, z-2, 89);
+setTile(x, y+12, z, 89);
+setTile(x, y+14, z-2, 58);
+setTile(x, y+16, z-2, 89);
+setTile(x, y+16, z, 89);
+setTile(x, y+18, z-2, 58);
+setTile(x, y+20, z-2, 89);
+setTile(x, y+20, z, 89);
+setTile(x, y+25, z, 89);
+setTile(x, y+26, z-2, 44, 6);
+setTile(x, y+26, z, 89);
+setTile(x, y+26, z+2, 44, 6);
+setTile(x, y+27, z, 89);
+setTile(x, y+28, z, 89);
+setTile(x, y+29, z, 8);
+setTile(x+1, y+1, z-5, 156, 1);
+setTile(x+1, y+3, z-5, 50, 4);
+setTile(x+1, y+6, z, 102);
+setTile(x+1, y+10, z-3, 61, 3);
+setTile(x+1, y+10, z, 64, 1);
+setTile(x+1, y+11, z, 64, 8);
+setTile(x+1, y+14, z-3, 61, 3);
+setTile(x+1, y+14, z, 64, 1);
+setTile(x+1, y+15, z, 64, 8);
+setTile(x+1, y+18, z-3, 54, 3);
+setTile(x+1, y+18, z, 64, 1);
+setTile(x+1, y+19, z, 64, 8);
+setTile(x+1, y+22, z-2, 135, 1);
+setTile(x+1, y+22, z, 135, 1);
+setTile(x+1, y+26, z-2, 44, 6);
+setTile(x+1, y+26, z+2, 44, 6);
+setTile(x+2, y+6, z, 102);
+setTile(x+2, y+10, z-3, 54, 3);
+setTile(x+2, y+11, z-4, 102);
+setTile(x+2, y+14, z-3, 54, 3);
+setTile(x+2, y+15, z-4, 102);
+setTile(x+2, y+18, z-3, 61, 3);
+setTile(x+2, y+19, z-4, 102);
+setTile(x+2, y+22, z-2, 85, 2);
+setTile(x+2, y+22, z, 85, 2);
+setTile(x+2, y+23, z-2, 171);
+setTile(x+2, y+23, z, 171);
+setTile(x+2, y+25, z-2, 89);
+setTile(x+2, y+25, z+2, 89);
+setTile(x+2, y+26, z-2, 89);
+setTile(x+2, y+26, z-1, 44, 6);
+setTile(x+2, y+26, z, 44, 6);
+setTile(x+2, y+26, z+1, 44, 6);
+setTile(x+2, y+26, z+2, 89);
+setTile(x+3, y+2, z+2, 64, 3);
+setTile(x+3, y+3, z+2, 64, 9);
+setTile(x+3, y+3, z+3, 8);
+setTile(x+3, y+4, z+2, 89);
+setTile(x+3, y+4, z+3, 68, 3);
+setTile(x+3, y+6, z, 102);
+setTile(x+3, y+6, z+2, 64, 3);
+setTile(x+3, y+7, z+2, 64, 9);
+setTile(x+3, y+7, z+3, 8);
+setTile(x+3, y+8, z+2, 89);
+setTile(x+3, y+8, z+3, 68, 3);
+setTile(x+3, y+10, z-3, 26, 10);
+setTile(x+3, y+10, z-2, 26, 2);
+setTile(x+3, y+10, z+2, 64, 3);
+setTile(x+3, y+11, z+2, 64, 9);
+setTile(x+3, y+11, z+3, 8);
+setTile(x+3, y+12, z+2, 89);
+setTile(x+3, y+12, z+3, 68, 3);
+setTile(x+3, y+14, z-3, 26, 10);
+setTile(x+3, y+14, z-2, 26, 2);
+setTile(x+3, y+14, z+2, 64, 3);
+setTile(x+3, y+15, z+2, 64, 9);
+setTile(x+3, y+15, z+3, 8);
+setTile(x+3, y+16, z+2, 89);
+setTile(x+3, y+16, z+3, 68, 3);
+setTile(x+3, y+18, z-3, 26, 10);
+setTile(x+3, y+18, z-2, 26, 2);
+setTile(x+3, y+18, z+2, 64, 3);
+setTile(x+3, y+19, z+2, 64, 9);
+setTile(x+3, y+19, z+3, 8);
+setTile(x+3, y+20, z+2, 89);
+setTile(x+3, y+20, z+3, 68, 3);
+setTile(x+3, y+22, z-2, 135);
+setTile(x+3, y+22, z, 135);
+setTile(x+3, y+22, z+2, 64, 3);
+setTile(x+3, y+23, z+2, 64, 9);
+setTile(x+3, y+23, z+3, 8);
+setTile(x+3, y+24, z+2, 89);
+setTile(x+3, y+24, z+3, 68, 3);
+setTile(x+3, y+25, z+3, 8);
+setTile(x+4, y+7, z+1, 102);
+setTile(x+4, y+11, z-2, 102);
+setTile(x+4, y+15, z-2, 102);
+setTile(x+4, y+19, z-2, 102);
+setTile(x+4, y+27, z-4, 50, 5);
+setTile(x+4, y+27, z+4, 50, 5);
