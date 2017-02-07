@@ -319,29 +319,6 @@ btnPlayer = null;
 }
 }
 }));
-var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
-var heall = makeToggleButton("철칼 - 회복", "철칼 - 회복", 
-function(){
-try{
-var forder = new java.io.File(sdcard+"/darkTornado/");
-var forder2 = new java.io.File(sdcard+"/darkTornado/ESP Script/");
-forder.mkdir();
-forder2.mkdir();
-var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
-var fos = new java.io.FileOutputStream(file);
-var str = new java.lang.String("true");
-fos.write(str.getBytes());
-fos.close();
-}
-catch(e){
-clientMessage(e+", "+e.lineNumber);
-}
-},
-function(){
-var file = new java.io.File(sdcard+"/darkTornado/ESP Script/onoff.txt");
-if(file.exists()) file.delete();
-},
-file.exists());
 var mmhef = makeToggleButton("Max Healh Error Fix", "Max Healh Error Fix", 
 function(){
 maxHealthFix = true;
@@ -372,7 +349,6 @@ layout.addView(mtown);
 layout.addView(mesp);
 layout.addView(mae);
 layout.addView(msl);
-layout.addView(heall);
 layout.addView(mmhef);
 layout.addView(mgps);
 layout.addView(mes);
