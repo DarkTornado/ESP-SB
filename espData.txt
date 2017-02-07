@@ -55,6 +55,7 @@ if(!mcpev&&(v.getId()==82||v.getId()==83||v.getId()==84||v.getId()==86||v.getId(
 else SB.espManage(v.getId());
 }
 });
+layout.addView(btns[n]);
 }
 var mdtj = makeButton("Dark Tornado jr.", "SB.hyperManager(0);");
 mdtj.setOnLongClickListener(new View.OnLongClickListener(){
@@ -89,8 +90,6 @@ btnTime = null;
 }
 }
 });
-for(var n in esps)
-layout.addView(btns[n]);
 layout.addView(mdtj);
 layout.addView(mfe);
 
@@ -140,7 +139,7 @@ layout.addView(metc);
 layout.addView(exit);
 
 var txt = new TextView(ctx);
-txt.setText("\n© 2014-2016 Dark Tornado\n");
+txt.setText("\n© 2014-2017 Dark Tornado\n");
 txt.setTextSize(11);
 txt.setGravity(Gravity.CENTER);
 txt.setOnClickListener(new View.OnClickListener(){
