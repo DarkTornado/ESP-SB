@@ -166,6 +166,7 @@ layout.addView(button);
 btnPlayer.setContentView(layout);
 btnPlayer.setWidth(dip2px(ctx, 50));
 btnPlayer.setHeight(dip2px(ctx, 48));
+btnPlayer.setAnimationStyle(android.R.style.Animation_InputMethod);
 btnPlayer.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
 btnPlayer.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT | Gravity.TOP, dip2px(ctx, 108), 10);
 }
