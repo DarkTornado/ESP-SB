@@ -61,12 +61,15 @@ else{
 selectUser(eval(espCode[type]), 4, ra.n[type]);
 }
 });
-for(var n in button)
+for(var n in button){
+button[n].setTransformationMethod(null);
 layout.addView(button[n]);
+}
 var exit = makeExitButton(menuE);
 layout.addView(exit);
 var scroll = makeScroll(layout, menuE);
 menuE.setContentView(scroll);
+menuE.setAnimationStyle(android.R.style.Animation_Translucent);
 menuE.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
 menuE.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 }
