@@ -14,11 +14,11 @@ button.setBackgroundColor(Color.argb(0, 0, 0, 0));
 else{
 button.setBackgroundColor(Color.argb(70, 0, 0, 0));
 }
-button.setTransformationMethod(null);
 layout.addView(button);
 btnTime.setContentView(layout);
 btnTime.setWidth(dip2px(ctx, 105));
 btnTime.setHeight(dip2px(ctx, 48));
+btnTime.setAnimationStyle(android.R.style.Animation_InputMethod);
 btnTime.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));
 btnTime.showAtLocation(ctx.getWindow().getDecorView(), Gravity.LEFT|Gravity.TOP, 10, 10);
 //------
@@ -50,7 +50,6 @@ for(var n=0;n<100;n++){
 btns[n] = new Button(ctx);
 btns[n].setText(ra.n[n]);
 btns[n].setId(n);
-btns[n].setTransformationMethod(null);
 btns[n].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 if(!mcpev&&(v.getId()==82||v.getId()==83||v.getId()==84||v.getId()==86||v.getId()==87)) ESP.toast("0.8.1 이하에서는 사용할 수 없습니다");
@@ -60,7 +59,6 @@ else SB.espManage(v.getId());
 layout.addView(btns[n]);
 }
 var mdtj = makeButton("Dark Tornado jr.", "SB.hyperManager(0);");
-mdtj.setTransformationMethod(null);
 mdtj.setOnLongClickListener(new View.OnLongClickListener(){
 onLongClick: function(v){
 SB.hyperManager(3);
@@ -68,7 +66,6 @@ return true;
 }
 });
 var mfe = makeButton("Fire Expert", "SB.hyperManager(1);");
-mfe.setTransformationMethod(null);
 mfe.setOnLongClickListener(new View.OnLongClickListener(){
 onLongClick: function(v){
 SB.hyperManager(2);
@@ -76,14 +73,12 @@ return true;
 }
 });
 var metc = makeButton("ETC", "otherESPManager();");
-metc.setTransformationMethod(null);
 var minfo = makeButton("도움말", function(){
 ESP.infoDialog("초능력자 대전", "\"초능력자 대전\"은 Dark Tornado가 만든 능력자 스크립트로서, 무단 공유는 허용하나, 무단 수정 및 자신이 만들었다고 주장하는 행위는 금지하며, 그냥 또는 학습을 위해 열어보는 것은 허용합니다.\n대략적인 사용법은 명령어 \"/help\"또는 \"/도움말\"을 치시면 나옵니다.\n오른쪽 아래의 \"EM\"버튼으로 on/off되는 이 버튼들(?)은 \"ESP Manager\"이며, 이곳에 있는 기능들은 대부분이 명령어로도 사용이 가능합니다. EM버튼은 위치 수정이 가능합니다.\nESP Manager의 기능들은 능력 비활성화(타 스크립트의 능력자의 경우 불가)와 능력자 전송, 사살, 회복 등이며, 서버관리자의 기능도 어느정도는 있습니다. 기능들은 버튼의  내용을 해석하시면 될 듯 싶습니다.\nESP Manager가 지원하는 능력자 스크립트는 초능력자 대전, 초능력자 대전+와 ESP-Else에 속한 능력자들입니다. ESP Manager는 마법사 대전의 Wizard Manager, ESP-Else의 능력 on/off 기능과 연동되어 있습니다.\n", "© 2014-2017 Dark Tornado\n(http://blog.naver.com/dt3141592)");
 });
 
 var exit = new Button(ctx);
 exit.setText("EXIT");
-exit.setTransformationMethod(null);
 exit.setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
 if(menu!=null){
@@ -109,7 +104,6 @@ var button = [];
 for(var n in he.names){
 button[n] = new Button(ctx);
 button[n].setText(he.names[n]);
-button[n].setTransformationMethod(null);
 button[n].setId(Number(n)+100);
 button[n].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
@@ -124,7 +118,6 @@ var btns = [];
 for(var n in he.names2){
 btns[n] = new Button(ctx);
 btns[n].setText(he.names2[n]);
-btns[n].setTransformationMethod(null);
 btns[n].setId(Number(n)+107);
 btns[n].setOnClickListener(new View.OnClickListener(){
 onClick: function(v){
