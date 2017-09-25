@@ -161,7 +161,6 @@ layout.addView(txt);
 
 var scroll = makeScroll(layout,menu);
 menu.setContentView(scroll);
-menu.setAnimationStyle(android.R.style.Animation_Translucent);
 menu.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(Color.BLACK));
 menu.showAtLocation(ctx.getWindow().getDecorView(),Gravity.RIGHT|Gravity.TOP, 0, 0);
 ESP.toast("ESP Manager on");
