@@ -9,7 +9,7 @@ button.setOnClickListener(new View.OnClickListener({
 onClick: function(v){
 if(menuP==null){
 try{
-var players = new Array();
+var players = [];
 for each(var e in Entity.getAll()){
 if(ESP.isPlayer(e)){
 players.push(e);
@@ -54,7 +54,7 @@ text.setGravity(Gravity.CENTER);
 var txt = new TextView(ctx);
 txt.setText("  target : "+Player.getName(playerTarget));
 txt.setTextSize(18);
-var button = new Array();
+var button = [];
 var menus = ["Send Player", "Call Player", "Go to Player", "Set Health", "Give Item", "Give Support Items", "Kick Player"];
 for(var n in menus){
 button[n] = new Button(ctx);
