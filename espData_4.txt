@@ -110,7 +110,7 @@ const EspInfo = [
 ];
 
 var nn = 0;
-var params = new android.widget.LinearLayout.LayoutParams(-1, -2, 1));
+var params = new android.widget.LinearLayout.LayoutParams(-1, -2, 1);
 for(var n=0;n<50;n++){
 var lay2 = new LinearLayout(ctx);
 lay2.setGravity(Gravity.CENTER);
