@@ -138,6 +138,7 @@ addItemInventory(302, 1, 0);
 addItemInventory(303, 1, 0);
 addItemInventory(304, 1, 0);
 addItemInventory(305, 1, 0);
+addItemInventory(399, 1, 0);
 addItemInventory(267, 1, 0);
 addItemInventory(354, 30, 0);
 addItemInventory(320, 30, 0);
