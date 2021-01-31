@@ -1,6 +1,6 @@
 # 초능력자 대전 (ESP-SB)
 
-© 2014-2020 Dark Tornado, All rights reserved.
+© 2014-2021 Dark Tornado, All rights reserved.
 
 Not allowed to use ESP-SB's source without my permission.
 
