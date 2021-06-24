@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no width=device-width" />
+    <meta name="description" content="초능력자 대전" />
+    <meta name="og:title" content="초능력자 대전" />
+    <meta name="og:description" content="초능력자 대전" />
+    <title>
+        초능력자 대전
+    </title>
+</head>
+<style>
+    /* For PC & Both */
+    body {
+        margin: 0px;
+    }
+
+    div.header {
+        color: WHITE;
+        float: center;
+        background: #26C6DA;
+        padding: 16px;
+        margin: 0px 0px 16px 0px;
+        box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    div.body {
+        padding: 16px;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+
+    input.Button {
+        width: 46%;
+        height: 43px;
+        background: #EEEEEE;
+        border: 0;
+        box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+        outline: none;
+    }
+
+    .mobile_ui {
+        display: none;
+
+    }
+
+    img.split {
+        width: 49%
+    }
+
+    /* For Mobile */
+    @media screen and (max-width: 480px) {
+        select {
+            width: 90%;
+        }
+
+        .mobile_ui {
+            display: block;
+
+        }
+
+        img.split {
+            width: 100%
+        }
+    }
+</style>
+
+<body>
+
+    <div class=header>
+        <center>
+            <font size='5px' face="arial">초능력자 대전</font>
+        </center>
+    </div>
+    <div class=body>
+        <center>
+            <img src="./images/ESP-SB.jpg" width=100% />
+        </center>
+        <font size='4px' face="arial">
+            <p>&nbsp;
+                Dark Tornado의 2014년 대표 스크립트. 멀티 플레이를 지원하는 능력자 스크립트이다. 최종 버전 8.0.0이 현재 개발중에 있다.
+            </p>
+            <center>
+                <table border=1 width=98%>
+                    <tr align=center>
+                        <td colspan=2 width=30%><b>이름</b></td>
+                        <td>초능력자 대전 (ESP-SB)</td>
+                    </tr>
+                    <tr align=center>
+                        <td colspan=2><b>최신 버전</b></td>
+                        <td>8.0.0 beta 2</td>
+                    </tr>
+                    <tr align=center>
+                        <td rowspan=2><b>호환 버전</b></td>
+                        <td><b>공식</b></td>
+                        <td>MCPE 0.10.4 ~ 1.0.8.1</td>
+                    </tr>
+                    <tr align=center>
+                        <td><b>비공식</b></td>
+                        <td>MCPE 0.8.1 ~ 1.0.8.1</td>
+                    </tr>
+                    <tr align=center>
+                        <td colspan=2><b>테마곡</b></td>
+                        <td>ESP</td>
+                    </tr>
+                    <tr align=center>
+                        <td colspan=2><b>낮 BGM</b></td>
+                        <td>We Must Fight</td>
+                    </tr>
+                    <tr align=center>
+                        <td colspan=2><b>밤 BGM</b></td>
+                        <td>Dark Battle</td>
+                    </tr>
+                    <tr align=center>
+                        <td colspan=2><b>개발 시작</b></td>
+                        <td>2014년</td>
+                    </tr>
+                </table>
+            </center>
+            <p>&nbsp;
+                마인크래프트 pe 0.8.1 시절부터 만들던 스크립트로, ESP 코드는 ESP-SB이며, SB는 The Supernaturals Battle의 약자이다.
+            </p>
+            <p>&nbsp;
+                능력자는 공식적으로는 100명, 비공식적으로는 150명이 존재했었으나, 최종 버전에서 35명이 삭제되어, 총 115명이 존재한다. 각 능력자들은 각자 스토리와 테마곡을 가지고 있다.
+            </p>
+            <p>&nbsp;
+                테마곡과 BGM, 각 능력자들의 테마곡들은 모두 Dark Tornado 작곡한 곡이며, 아직 작업하지 않은 능력자 테마곡들도 존재한다.
+            </p>
+        </font>
+        <font color=BLACK size='2px'>
+            <center>
+                <img src="./images/ESP-SB2.jpg" class=split />
+                <br class=mobile_ui><br class=mobile_ui>
+                <img src="./images/ESP-SB3.jpg" class=split /><br><br>
+            </center>
+        </font>
+        <font color=BLACK size='1px'>
+            <center>
+                <input type=button class=Button value="테마곡 감상" onclick="location.href='./music.html';">&nbsp;&nbsp;
+                <input type=button class=Button value="능력자 목록" onclick="location.href='./EspList.html';"><br><br>
+                <input type=button class=Button value="스킬 정보" onclick="downloadApp();">&nbsp;&nbsp;
+                <input type=button class=Button value="다운로드" onclick="downloadScript();"><br><br>
+            </center>
+        </font>
+
+        <hr>
+
+        <font color=BLACK size='2px' face="arial">
+            <p class=txt_detail align=center>© 2014-2021 Dark Tornado, All rights reserved.</p>
+        </font>
+
+    </div>
+
+    <script>
+        function downloadApp() {}
+
+        function downloadScript() {
+            location.href = "https://blog.naver.com/dt3141592/220950234484";
+        }
+    </script>
+</body>
+
+</html>

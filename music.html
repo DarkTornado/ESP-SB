@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no width=device-width" />
+    <meta name="description" content="초능력자 대전" />
+    <meta name="og:title" content="초능력자 대전" />
+    <meta name="og:description" content="초능력자 대전" />
+    <title>
+        초능력자 대전
+    </title>
+</head>
+<style>
+    /* For PC & Both */
+    body {
+        margin: 0px;
+    }
+
+    div.header {
+        color: WHITE;
+        float: center;
+        background: #26C6DA;
+        padding: 16px;
+        box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    div.body {
+        padding: 16px;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+
+    .mobile_ui {
+        display: none;
+
+    }
+
+    /* For Mobile */
+    @media screen and (max-width: 480px) {
+        select {
+            width: 90%;
+        }
+
+        input.Button {
+            width: 96%;
+            height: 43px;
+            background: #EEEEEE;
+            border: 0;
+            box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+            outline: none;
+        }
+
+        .mobile_ui {
+            display: block;
+
+        }
+    }
+</style>
+
+<body>
+
+    <div class=header>
+        <center>
+            <font size='5px' face="arial">초능력자 대전 테마곡</font>
+        </center>
+    </div>
+    <center>
+        <div class=body>
+            <font size='4px' face="arial">
+                <p>원하는 테마곡을 선택하세요.</p>
+                <select id='music_list'>
+                    <!-- ESP - 1st -->
+                    <option>Fire User - Force of Fire</option>
+                    <option>Water Controller - Sparking Water</option>
+                    <option>Nature Guardian - The Forest</option>
+                    <option>I am Creeper - Let's Explode</option>
+                    <option>Soil Master - Power of Earth</option>
+                    <option>The Summoner - Calling</option>
+                    <option>The Luminous - Holy Night</option>
+                    <option>The Darkness - Diabloic Emission</option>
+                    <!-- ESP - 2nd -->
+                    <option>The Freezer - A Girl Under the Moon (vers C)</option>
+                    <option>Desert Maker - A Girl Under the Moon (vers B)</option>
+                    <option>The Vampire - Blood Night</option>
+                    <option>Air Bander - Flying</option>
+                    <option>I am Elsa - Ice Castle</option>
+                    <option>Mass Titan - Eating Time</option>
+                    <option>Thunder Breaker - Electric Field</option>
+                    <option>The Binder - Poison Web</option>
+                    <option>The Mechanic - Interesting Hacking</option>
+                </select>
+                <br class=mobile_ui>
+                <br class=mobile_ui>
+                <input type=button class=Button value='선택' onclick='applyMusic();'><br><br>
+                <audio controls id="music_player"></audio>
+
+            </font>
+
+            <br class=mobile_ui>
+            <br class=mobile_ui>
+            <hr class=mobile_ui>
+
+            <font color=BLACK size='2px' face="arial">
+                <p class=txt_detail align=center>© 2014-2021 Dark Tornado, All rights reserved.</p>
+            </font>
+
+        </div>
+    </center>
+
+    <script>
+        const MusicList = [
+            "zt4of6snfyp8ch2/Force%20of%20Fire", "221apcsiwo0e6yk/Sparkling%20Water",
+            "w7ulear5ax7p1yz/The%20Forest",
+            "va2buu40hizh3a1/Let%27s%20Explode",
+            "m3seuaubwh8xdj5/Power%20of%20Earth",
+            "immeuei4j8fcphd/Calling",
+            "pk7y6eqor6apti4/Holy%20Light",
+            "z1gu38srhhicqnh/Diabolic%20Emission",
+            "fptaakpacgo29dy/A%20Girl%20Under%20the%20Moon%28vers%20C%29",
+            "0leswpjh80oywnf/A%20Girl%20Under%20the%20Moon%28vers%20B%29",
+            "fqzew9w51b97c2d/Black%20Night",
+            "7pv93f3g0qjcw64/Flying",
+            "eu2i75j2wvsnka0/Ice%20Castle",
+            "rdlzyr7463evgmh/Eating%20Time",
+            "qv87mz25u2q49nk/Electric%20Field",
+            "jp4qnkxshq6n7l2/Poison%20Web",
+            "ybvogfzwyqg2kn5/Interesting%20Hacking"
+        ];
+
+        function applyMusic() {
+            var spin = document.getElementById('music_list');
+            var index = spin.selectedIndex;
+
+            document.getElementById("music_player").src = "https://www.dropbox.com/s/" + MusicList[index] + ".mp3?dl=1";
+        }
+    </script>
+</body>
+
+</html>
