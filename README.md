@@ -1,6 +1,6 @@
 # 초능력자 대전 (ESP-SB)
 
-© 2014-2022 Dark Tornado, All rights reserved.
+© 2014-2024 Dark Tornado, All rights reserved.
 
 <img src="Screenshot.png" width=100%>
 
